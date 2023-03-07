@@ -6,7 +6,31 @@ import { FaCommentAlt } from "react-icons/fa";
 const Home = () => {
   return (
     <section className="home">
-      <aside className="home-top"></aside>
+      <aside className="home-top">
+        <h1>Թոփ գրվածքներ</h1>
+        <div className="home-top-list">
+          <div className="home-top-list-item">
+            <h1>Title</h1>
+            <p>
+              Ցրտահա՜ր, հողմավա՚ր. Դողացին մեղմաբար Տերևները դե ղին, Պատեցին իմ
+              ուղին...
+            </p>
+            <span>
+              <Link to={"/"}>V.Teryan</Link>
+            </span>
+          </div>
+          <div className="home-top-list-item">
+            <h1>Title</h1>
+            <p>
+              Ցրտահա՜ր, հողմավա՚ր. Դողացին մեղմաբար Տերևները դե ղին, Պատեցին իմ
+              ուղին...
+            </p>
+            <span>
+              <Link to={"/"}>V.Teryan</Link>
+            </span>
+          </div>
+        </div>
+      </aside>
       <div className="home-content">
         <h1>Home</h1>
         <div className="home-content-posts">
@@ -60,7 +84,22 @@ const Home = () => {
           <div className="home-content-posts-post"></div>
         </div>
       </div>
-      <aside className="home-news"></aside>
+      <aside className="home-poets">
+        <h1>Թոփ Պոետներ</h1>
+        <div className="home-poets-list">
+          <div className="home-poets-list-poet">
+            <div className="home-poets-list-poet-image">
+              <img
+                src="https://w7.pngwing.com/pngs/862/646/png-transparent-beard-hipster-male-man-avatars-xmas-giveaway-icon-thumbnail.png"
+                alt="poetImage"
+              />
+            </div>
+            <h2 className="home-poets-list-poet-fullname">
+              <Link to={""}>Poet Poetyan</Link>
+            </h2>
+          </div>
+        </div>
+      </aside>
     </section>
   );
 };

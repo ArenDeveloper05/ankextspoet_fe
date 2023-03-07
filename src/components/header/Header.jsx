@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./Header.scss";
 import TypeWriterEffect from "react-typewriter-effect";
 import { RiAccountCircleFill } from "react-icons/ri";
+import { ROUTER } from "../../router/index";
 
 const Header = () => {
   const myAppRef = null;
@@ -11,7 +12,7 @@ const Header = () => {
         <nav>
           <ul>
             <li>
-              <Link to={""}>Home</Link>
+              <Link to={ROUTER.HOME_ROUTE}>Home</Link>
             </li>
             <li>
               <Link to={""}>About</Link>
@@ -28,7 +29,9 @@ const Header = () => {
             </div>
           ) : (
             <div className="account-button">
-              <button>ՄՈՒՏՔ</button>
+              <Link to={ROUTER.LOGIN_ROUTE}>
+                <button>ՄՈՒՏՔ</button>
+              </Link>
             </div>
           )}
         </div>
