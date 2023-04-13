@@ -7,14 +7,26 @@ import * as Yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
 import { ROUTER } from "../../router";
 import { register } from "../../api/api";
+
+// //Toast components
+import { ToastContainer } from "react-toastify";
+import { notifyError } from "../../utils/toast/toast";
+
 const Register = () => {
+  // NAVIGATION FUNCTION
   const navigate = useNavigate();
+
+  //STATE OF VISIBILITY PASSWORD
   const [visiblePassword, setVisiblePassword] = useState(false);
+
+  //INITIAL VALUES OF FORM
   const initialValues = {
     email: "",
     password: "",
     name: "",
   };
+
+  //VALIDATION OF FORM
   const validationSchema = Yup.object().shape({
     email: Yup.string()
       .email("էլ փոստը ճիշտ ֆորմատով չէ")
@@ -23,6 +35,7 @@ const Register = () => {
     name: Yup.string().min(3).required("Անունը պարտադիր է"),
   });
 
+  //FUNCTION WICH CALLS WHEN USER CLICKS SUBMIT BUTTON
   async function handleSubmit(values) {
     console.log(values);
     try {
@@ -30,7 +43,8 @@ const Register = () => {
       console.log("Registration");
       navigate(ROUTER.LOGIN_ROUTE);
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
+      notifyError(error.response.data.message);
     }
   }
 
@@ -102,6 +116,7 @@ const Register = () => {
           );
         }}
       </Formik>
+      <ToastContainer />
     </div>
   );
 };

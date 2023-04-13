@@ -1,27 +1,31 @@
 import { useState } from "react";
 import "./Login.scss";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
+import { ROUTER } from "../../router";
+import { Link, useNavigate } from "react-router-dom";
+import { changeInLocalStorage, getUserData, login } from "../../api/api";
 // Formik components and Yup
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { ROUTER } from "../../router";
-import { Link, useNavigate } from "react-router-dom";
-import {
-  changeInLocalStorage,
-  getFromLocalStorage,
-  getUserData,
-  login,
-} from "../../api/api";
+
+// //Toast components
+import { ToastContainer } from "react-toastify";
+import { notifyError } from "../../utils/toast/toast";
 
 const Login = () => {
+  // NAVIGATION FUNCTION
   const navigate = useNavigate();
+
+  //STATE OF VISIBILITY PASSWORD
   const [visiblePassword, setVisiblePassword] = useState(false);
 
+  //INITIAL VALUES OF FORM
   const initialValues = {
     username: "",
     password: "",
   };
 
+  //VALIDATION OF FORM
   const validationSchema = Yup.object().shape({
     username: Yup.string()
       .email("էլ փոստը ճիշտ ֆորմատով չէ")
@@ -29,6 +33,7 @@ const Login = () => {
     password: Yup.string().required("Գաղտնաբառը պարտադիր է"),
   });
 
+  //FUNCTION WICH CALLS WHEN USER CLICKS SUBMIT BUTTON
   async function handleSubmit(values) {
     console.log(values);
     try {
@@ -44,6 +49,7 @@ const Login = () => {
       console.log(data);
     } catch (error) {
       console.log(error.message);
+      notifyError(error.response.data.message);
     }
   }
 
@@ -55,7 +61,6 @@ const Login = () => {
         onSubmit={handleSubmit}
       >
         {(props) => {
-          console.log(props.values);
           return (
             <Form className="login-container">
               <div className="login-container-row">
@@ -106,6 +111,7 @@ const Login = () => {
           );
         }}
       </Formik>
+      <ToastContainer />
     </div>
   );
 };
