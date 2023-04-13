@@ -7,6 +7,9 @@
   /* --account: #a6996f; */
   --account: #ded0a4;
   --link: rgb(92, 65, 95);
+  --input-bg: rgb(255, 254, 246);
+  --dark-blue: #0c2340;
+  --dark-blueviolet: #4a1942;
 }
 #root {
   max-width: 1700px;

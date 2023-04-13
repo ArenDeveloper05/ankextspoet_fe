@@ -45,6 +45,7 @@
       width: 200px;
       height: 100%;
       display: flex;
+      position: relative;
       //test
       // border: solid;
       justify-content: flex-end;
@@ -61,24 +62,41 @@
         padding: 2px 0;
         cursor: pointer;
       }
+      &-modal {
+        border: solid;
+        background-color: white;
+        position: absolute;
+        top: 46px;
+        min-height: 300px;
+        padding: 8px 16px;
+      }
+
       &-button {
-        button {
-          width: 120px;
-          height: 40px;
-          background-color: var(--account);
-          border-radius: 12px;
-          font-size: 20px;
-          border: 2px solid;
-          font-weight: 700;
-          cursor: pointer;
-          transition-duration: 1s;
-          transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          &:hover {
-            color: white;
-            background-color: blueviolet;
+        > a {
+          text-decoration: none;
+          > button {
+            width: 120px;
+            height: 40px;
+            background-color: var(--account);
+            border-radius: 12px;
+            font-size: 20px;
+            border: 2px solid;
+            font-weight: 700;
+            cursor: pointer;
+            transition-duration: 1s;
+            transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:hover {
+              color: white;
+              background: linear-gradient(
+                to bottom right,
+                var(--dark-blue),
+                var(--dark-blueviolet)
+              );
+            }
           }
         }
       }
