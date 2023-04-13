@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import "./Header.scss";
 import TypeWriterEffect from "react-typewriter-effect";
-import { RiAccountCircleFill } from "react-icons/ri";
 import { ROUTER } from "../../router/index";
+import { getFromLocalStorage } from "../../api/api";
+import HeaderAccount from "./header-account/HeaderAccount";
+import HeaderLogin from "./header-login/HeaderLogin";
 
 const Header = () => {
   const myAppRef = null;
@@ -23,16 +25,10 @@ const Header = () => {
           </ul>
         </nav>
         <div className="account">
-          {localStorage.getItem("isAuth") === "true" ? (
-            <div className="account-login">
-              <RiAccountCircleFill />
-            </div>
+          {getFromLocalStorage("isAuth") === "true" ? (
+            <HeaderAccount />
           ) : (
-            <div className="account-button">
-              <Link to={ROUTER.LOGIN_ROUTE}>
-                <button>ՄՈՒՏՔ</button>
-              </Link>
-            </div>
+            <HeaderLogin text="Մուտք" />
           )}
         </div>
       </header>
