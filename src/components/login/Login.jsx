@@ -11,6 +11,7 @@ import * as Yup from "yup";
 // //Toast components
 import { ToastContainer } from "react-toastify";
 import { notifyError } from "../../utils/toast/toast";
+import { Button, TextField } from "@mui/material";
 
 const Login = () => {
   // NAVIGATION FUNCTION
@@ -64,31 +65,35 @@ const Login = () => {
           return (
             <Form className="login-container">
               <div className="login-container-row">
-                <label htmlFor="login-email">Ձեր էլ փոստը</label>
-                <input
+                <TextField
+                  label="Ձեր էլ փոստը"
+                  fullWidth={true}
                   type="text"
-                  id="login-email"
+                  error={props.errors.username}
                   placeholder="example@mail.ru"
                   name="username"
                   value={props.values.username}
                   onChange={props.handleChange}
                   onBlur={props.handleBlur}
+                  sx={{ width: "95%" }}
                 />
                 {props.errors.username && props.touched.username && (
                   <p>{props.errors.username}</p>
                 )}
               </div>
               <div className="login-container-row">
-                <label htmlFor="login-password">Ձեր գաղտնաբառը</label>
                 <div className="login-container-row-password">
-                  <input
+                  <TextField
+                    label="Ձեր գաղտնաբառը"
+                    fullWidth={true}
+                    error={props.errors.password}
                     type={visiblePassword ? "text" : "password"}
                     placeholder="Example1234"
                     name="password"
-                    id="login-password"
                     value={props.values.password}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
+                    sx={{ width: "95%" }}
                   />
 
                   <span onClick={() => setVisiblePassword((prev) => !prev)}>
@@ -103,7 +108,7 @@ const Login = () => {
                   <p>{props.errors.password}</p>
                 )}
               </div>
-              <button type="submit">ՄՈՒՏՔ</button>
+              <Button type="submit">ՄՈՒՏՔ</Button>
               <Link to={ROUTER.REGISTER_ROUTE}>
                 Դեռ չեք գրանցվե՞լ, Գրանցվել
               </Link>

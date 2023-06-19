@@ -9,6 +9,8 @@ import RegisterPage from "./pages/RegisterPage";
 import ProtectedRoute from "./router/ProtectedRoute";
 import { getFromLocalStorage } from "./api/api";
 import AccountPage from "./pages/AccountPage";
+import AddPostPage from "./pages/AddPostPage";
+import UserPostsPage from "./pages/UserPostsPage";
 
 function App() {
   const isAuth = getFromLocalStorage("isAuth") == "true" ? true : false;
@@ -37,6 +39,22 @@ function App() {
           element={
             <ProtectedRoute isAuth={!isAuth} redirectPath={ROUTER.HOME_ROUTE}>
               <AccountPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path={ROUTER.ADD_POST_ROUTE}
+          element={
+            <ProtectedRoute isAuth={!isAuth} redirectPath={ROUTER.HOME_ROUTE}>
+              <AddPostPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path={ROUTER.MY_POSTS_ROUTE}
+          element={
+            <ProtectedRoute isAuth={!isAuth} redirectPath={ROUTER.HOME_ROUTE}>
+              <UserPostsPage />
             </ProtectedRoute>
           }
         />
