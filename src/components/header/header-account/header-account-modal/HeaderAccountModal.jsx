@@ -9,6 +9,7 @@ const HeaderAccountModal = forwardRef((props, ref) => {
   return (
     <div className="account-modal" ref={ref}>
       <p
+        className="account-modal-field"
         onClick={() => {
           console.log(getFromLocalStorage("isAuth"));
           getFromLocalStorage("isAuth") === "true" &&
@@ -18,6 +19,16 @@ const HeaderAccountModal = forwardRef((props, ref) => {
         My Account
       </p>
       <p
+        className="account-modal-field"
+        onClick={() => {
+          getFromLocalStorage("isAuth") === "true" &&
+            navigate(ROUTER.MY_POSTS_ROUTE);
+        }}
+      >
+        My Posts
+      </p>
+      <p
+        className="account-modal-field"
         onClick={() => {
           localStorage.removeItem("isAuth");
           window.location.reload();

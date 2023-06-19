@@ -46,9 +46,20 @@
       height: 100%;
       display: flex;
       position: relative;
+
       //test
       // border: solid;
       justify-content: flex-end;
+      .add-post {
+        font-size: 40px;
+        margin-right: 12px;
+        cursor: pointer;
+        border-radius: 50%;
+        svg {
+          height: 100%;
+          color: var(--account);
+        }
+      }
 
       &-login {
         width: 50px;
@@ -63,12 +74,18 @@
         cursor: pointer;
       }
       &-modal {
-        border: solid;
+        border: 6px solid;
+        border-radius: 12px;
         background-color: white;
         position: absolute;
         top: 46px;
         min-height: 300px;
-        padding: 8px 16px;
+        background-color: var(--account);
+        &-field {
+          cursor: pointer;
+          border: solid;
+          padding: 8px 4px;
+        }
       }
 
       &-button {

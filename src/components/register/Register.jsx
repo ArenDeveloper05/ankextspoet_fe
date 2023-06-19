@@ -11,6 +11,7 @@ import { register } from "../../api/api";
 // //Toast components
 import { ToastContainer } from "react-toastify";
 import { notifyError } from "../../utils/toast/toast";
+import { Button, TextField } from "@mui/material";
 
 const Register = () => {
   // NAVIGATION FUNCTION
@@ -59,44 +60,44 @@ const Register = () => {
           return (
             <Form className="register-container">
               <div className="register-container-row">
-                <label htmlFor="username">Անուն</label>
-                <input
+                <TextField
                   type="text"
-                  id="username"
                   name="name"
                   value={props.values.name}
                   onChange={props.handleChange}
                   onBlur={props.handleBlur}
+                  label="Անուն"
+                  sx={{ width: "95%" }}
                 />
                 {props.errors.name && props.touched.name && (
                   <p>{props.errors.name}</p>
                 )}
               </div>
               <div className="register-container-row">
-                <label htmlFor="reg-email">էլ․ հասցե</label>
-                <input
+                <TextField
                   type="email"
-                  id="reg-email"
                   name="email"
                   value={props.values.email}
                   onChange={props.handleChange}
                   onBlur={props.handleBlur}
+                  label="էլ․ հասցե"
+                  sx={{ width: "95%" }}
                 />
                 {props.errors.email && props.touched.email && (
                   <p>{props.errors.email}</p>
                 )}
               </div>
               <div className="register-container-row">
-                <label htmlFor="reg-password">Ձեր գաղտնաբառը</label>
                 <div className="register-container-row-password">
-                  <input
+                  <TextField
                     type={visiblePassword ? "text" : "password"}
                     placeholder="Example1234"
                     name="password"
-                    id="reg-password"
                     value={props.values.password}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
+                    label="Ձեր գաղտնաբառը"
+                    sx={{ width: "95%" }}
                   />
                   <span onClick={() => setVisiblePassword((prev) => !prev)}>
                     {visiblePassword ? (
@@ -110,7 +111,7 @@ const Register = () => {
                   <p>{props.errors.password}</p>
                 )}
               </div>
-              <button type="submit">Գրանցվել</button>
+              <Button type="submit">Գրանցվել</Button>
               <Link to={ROUTER.LOGIN_ROUTE}>Արդեն գրանցվե՞լ եք, ՄՈՒՏՔ</Link>
             </Form>
           );

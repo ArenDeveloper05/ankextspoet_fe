@@ -3,8 +3,10 @@ import "./Header.scss";
 import TypeWriterEffect from "react-typewriter-effect";
 import { ROUTER } from "../../router/index";
 import { getFromLocalStorage } from "../../api/api";
+import { FaPlusCircle } from "react-icons/fa";
 import HeaderAccount from "./header-account/HeaderAccount";
 import HeaderLogin from "./header-login/HeaderLogin";
+import HeaderAddPost from "./header-addpost/HeaderAddPost";
 
 const Header = () => {
   const myAppRef = null;
@@ -26,7 +28,10 @@ const Header = () => {
         </nav>
         <div className="account">
           {getFromLocalStorage("isAuth") === "true" ? (
-            <HeaderAccount />
+            <>
+              <HeaderAddPost />
+              <HeaderAccount />
+            </>
           ) : (
             <HeaderLogin text="Մուտք" />
           )}

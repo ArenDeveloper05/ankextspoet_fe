@@ -33,9 +33,25 @@ export const login = async (loginData) => {
 export const register = async (registerData) => {
   return await api.post("/api/user", registerData);
 };
+export const addPost = async (postData) => {
+  const obj = {
+    ...postData,
+    draft: postData.draft + "",
+    user_id: JSON.parse(getFromLocalStorage("userData")).id,
+  };
+  return await api.post("/api/post", obj);
+};
 //GET
 export const getUserData = async (token) => {
   return await api.get("/api/user", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const getUserPosts = async (token) => {
+  return await api.get("/api/posts", {
     headers: {
       Authorization: `Bearer ${token}`,
     },

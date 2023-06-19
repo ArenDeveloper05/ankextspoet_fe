@@ -2,12 +2,31 @@ import { Link } from "react-router-dom";
 import "./Home.scss";
 import { AiFillHeart } from "react-icons/ai";
 import { FaCommentAlt } from "react-icons/fa";
+import { useState } from "react";
+import { useEffect } from "react";
+import { getFromLocalStorage } from "../../api/api";
+import PostCard from "./postcard/PostCard";
 
 const Home = () => {
+  const [posts, setPosts] = useState([]);
+
+  // useEffect(() => {
+  //   async function getData() {
+  //     try {
+  //       const { data } = await getAllPosts(getFromLocalStorage("accessToken"));
+  //       console.log(data);
+  //       setPosts(data);
+  //     } catch (error) {
+  //       console.log(error.message);
+  //     }
+  //   }
+  //   getData();
+  // }, []);
   return (
     <section className="home">
       <aside className="home-top">
         <h1>Թոփ գրվածքներ</h1>
+
         <div className="home-top-list">
           <div className="home-top-list-item">
             <h1>Title</h1>
@@ -34,28 +53,12 @@ const Home = () => {
       <div className="home-content">
         <h1>Home</h1>
         <div className="home-content-posts">
-          <div className="home-content-posts-post">
-            <div className="home-content-posts-post-content">
-              <h1>Title</h1>
-              <p>
-                Ցրտահա՜ր, հողմավա՚ր. Դողացին մեղմաբար Տերևները դե ղին, Պատեցին
-                իմ ուղին...
-              </p>
-              <span>
-                <Link to={"/"}>V.Teryan</Link>
-              </span>
-            </div>
-            <div className="home-content-posts-post-buttons">
-              <div className="like">
-                <AiFillHeart />
-                <span>Հավանել</span>
-              </div>
-              <div className="comment">
-                <FaCommentAlt />
-                <span>Մեկնաբանել</span>
-              </div>
-            </div>
-          </div>
+          {/* {posts &&
+            posts.map(({ title, id, description }) => {
+              return (
+                <PostCard title={title} key={id} description={description} />
+              );
+            })} */}
           <div className="home-content-posts-post">
             <div className="home-content-posts-post-content">
               <h1>Title</h1>
@@ -79,9 +82,9 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="home-content-posts-post"></div>
-          <div className="home-content-posts-post"></div>
-          <div className="home-content-posts-post"></div>
+          {/* <div className="home-content-posts-post"></div> */}
+          {/* <div className="home-content-posts-post"></div>
+          <div className="home-content-posts-post"></div> */}
         </div>
       </div>
       <aside className="home-poets">
