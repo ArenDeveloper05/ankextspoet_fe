@@ -9,6 +9,7 @@ const api = axios.create({
   },
 });
 
+//Local Storage
 export const changeInLocalStorage = (key, value) => {
   localStorage.setItem(key, value);
 };
@@ -56,6 +57,26 @@ export const getUserPosts = async (token) => {
       Authorization: `Bearer ${token}`,
     },
   });
+};
+//DELETE
+export const deletePost = async (token, id) => {
+  return await api.delete(`/api/post/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+//PUT
+export const editPost = async (postData) => {
+  console.log("1111111");
+  // delete postData.id;
+  // const obj = {
+  //   ...postData,
+  //   draft: postData.draft + "",
+  //   user_id: JSON.parse(getFromLocalStorage("userData")).id,
+  // };
+  return await api.put(`/api/post/`, postData);
 };
 
 // api/user post  http://localhost:8000/api/user

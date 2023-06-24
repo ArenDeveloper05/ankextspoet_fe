@@ -9,7 +9,7 @@ export const CONFIG = {
     },
     {
       id: 2,
-      title: "Գազտնի",
+      title: "Գաղտնի",
       type: "private",
     },
   ],
