@@ -11,18 +11,18 @@ const UserPosts = () => {
   const [loading, setLoading] = useState(true);
   const [activeField, setActiveField] = useState(CONFIG.myPostsConfig[0]);
 
-  useEffect(() => {
-    async function getData() {
-      try {
-        const { data } = await getUserPosts(getFromLocalStorage("accessToken"));
-        console.log(data);
-        setPosts(data);
-      } catch (error) {
-        console.log(error.message);
-      } finally {
-        setLoading(false);
-      }
+  async function getData() {
+    try {
+      const { data } = await getUserPosts(getFromLocalStorage("accessToken"));
+      console.log(data);
+      setPosts(data);
+    } catch (error) {
+      console.log(error.message);
+    } finally {
+      setLoading(false);
     }
+  }
+  useEffect(() => {
     getData();
   }, []);
 
@@ -74,14 +74,28 @@ const UserPosts = () => {
         <div className="user-posts-container-cards">
           {activeField.type === "public"
             ? posts
-                .filter((post) => post.type == "public")
+                .filter((post) => post.type === "public")
                 .map((post) => {
-                  return <UserPostsCard post={post} key={post.id} />;
+                  return (
+                    <UserPostsCard
+                      post={post}
+                      key={post.id}
+                      id={post.id}
+                      getData={getData}
+                    />
+                  );
                 })
             : posts
-                .filter((post) => post.type == "private")
+                .filter((post) => post.type === "private")
                 .map((post) => {
-                  return <UserPostsCard post={post} key={post.id} />;
+                  return (
+                    <UserPostsCard
+                      post={post}
+                      key={post.id}
+                      id={post.id}
+                      getData={getData}
+                    />
+                  );
                 })}
         </div>
       </div>

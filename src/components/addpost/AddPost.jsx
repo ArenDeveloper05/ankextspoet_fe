@@ -11,9 +11,19 @@ const AddPost = () => {
     draft: false,
   });
 
-  const addNewPost = async () => {
+  function clearPostData() {
+    setPost({
+      title: "",
+      description: "",
+      type: "public",
+      draft: false,
+    });
+  }
+
+  const addPostFunction = async () => {
     try {
       await addPost(post);
+      clearPostData();
       console.log("gnac");
     } catch (err) {
       console.log(err);
@@ -72,7 +82,7 @@ const AddPost = () => {
           <label htmlFor="post-title">Վերնագիր</label>
         </div>
         <div className="add-post-container-row">
-          <Editor changeData={changeEditorData} />
+          <Editor changeData={changeEditorData} data={post.description} />
         </div>
         <div className="add-post-container-row">
           <input
@@ -104,7 +114,7 @@ const AddPost = () => {
           <label htmlFor="post-draft">Սևագիր</label>
         </div>
         <div className="add-post-container-row">
-          <button onClick={addNewPost}>Հրապարակել</button>
+          <button onClick={addPostFunction}>Հրապարակել</button>
           <button>Չեղարկել</button>
         </div>
       </div>
