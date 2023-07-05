@@ -13,7 +13,7 @@ import AddPostPage from "./pages/AddPostPage";
 import UserPostsPage from "./pages/UserPostsPage";
 
 function App() {
-  const isAuth = getFromLocalStorage("isAuth") == "true" ? true : false;
+  const isAuth = getFromLocalStorage("isAuth") === "true" ? true : false;
   return (
     <section className="app">
       <Routes>

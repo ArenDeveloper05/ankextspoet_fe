@@ -1,28 +1,54 @@
-import React from "react";
-import { AiFillHeart } from "react-icons/ai";
-import { FaCommentAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import PostCardAddComment from "./postcard-addcomment/PostCardAddComment";
+import { useState } from "react";
+import PostCardButtons from "./postcard-buttons/PostCardButtons";
+import PostCardContent from "./postcard-content/PostCardContent";
+import PostCardLikes from "./postcard-likes/PostCardLikes";
+import PostCardComments from "./postcard-comments/PostCardComments";
 
-const PostCard = ({ title, description }) => {
+const PostCard = ({
+  title,
+  description,
+  likes,
+  username,
+  comments,
+  id,
+  getAllPostsFunction,
+  is_liked,
+}) => {
+  const [openAddComment, setOpenAddComent] = useState(false);
+  const [openComments, setOpenComments] = useState(false);
+
   return (
     <div className="home-content-posts-post">
-      <div className="home-content-posts-post-content">
-        <h1>{title}</h1>
-        <p>{description}</p>
-        <span>
-          <Link to={"/"}>V.Teryan</Link>
-        </span>
-      </div>
-      <div className="home-content-posts-post-buttons">
-        <div className="like">
-          <AiFillHeart />
-          <span>Հավանել</span>
-        </div>
-        <div className="comment">
-          <FaCommentAlt />
-          <span>Մեկնաբանել</span>
-        </div>
-      </div>
+      <PostCardContent
+        title={title}
+        description={description}
+        username={username}
+      />
+      <PostCardLikes
+        likes={likes}
+        comments={comments}
+        setOpenComments={setOpenComments}
+      />
+      <PostCardButtons
+        setOpenAddComent={setOpenAddComent}
+        id={id}
+        getAllPostsFunction={getAllPostsFunction}
+        is_liked={is_liked}
+      />
+      {openComments && (
+        <PostCardComments
+          comments={comments}
+          getAllPostsFunction={getAllPostsFunction}
+        />
+      )}
+      {openAddComment && (
+        <PostCardAddComment
+          id={id}
+          getAllPostsFunction={getAllPostsFunction}
+          setOpenComments={setOpenComments}
+        />
+      )}
     </div>
   );
 };

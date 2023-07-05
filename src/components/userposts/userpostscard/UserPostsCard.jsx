@@ -66,19 +66,6 @@ const UserPostsCard = ({ post, id, getData }) => {
         <p>{post.created_at}</p>
       </div>
       <div className="user-posts-container-cards-card-buttons">
-        {/* <button
-          onClick={() => {
-            setEdit((prev) => !prev);
-            if (edit) {
-              if (editData !== post.description) {
-                console.log("kanchi");
-                editPostFunction(id);
-              }
-            }
-          }}
-        >
-          {edit ? "Save" : "Edit"}
-        </button> */}
         <LoadingButton
           startIcon={<AiFillEdit />}
           variant="outlined"
@@ -87,8 +74,6 @@ const UserPostsCard = ({ post, id, getData }) => {
             setEdit((prev) => !prev);
             if (edit) {
               if (editData !== post.description) {
-                console.log("kanchi");
-
                 editPostFunction(id);
               }
             }
@@ -108,14 +93,6 @@ const UserPostsCard = ({ post, id, getData }) => {
         >
           Delete
         </LoadingButton>
-        {/* <LoadingButton
-          startIcon={<AiFillDelete />}
-          variant="outlined"
-          color="error"
-          loading
-        >
-          <span>Submit</span>
-        </LoadingButton> */}
       </div>
     </div>
   );

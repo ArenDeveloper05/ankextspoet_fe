@@ -42,6 +42,14 @@ export const addPost = async (postData) => {
   };
   return await api.post("/api/post", obj);
 };
+
+export const addComment = async (postID, userInfo) => {
+  return await api.post(`/api/comment/${postID}`, userInfo);
+};
+
+export const addLike = async (postID, userInfo) => {
+  return await api.post(`/api/like/${postID}`, userInfo);
+};
 //GET
 export const getUserData = async (token) => {
   return await api.get("/api/user", {
@@ -58,6 +66,16 @@ export const getUserPosts = async (token) => {
     },
   });
 };
+
+export const getAllPosts = async (token) => {
+  console.log(token);
+  return await api.get("/api/all-posts", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
 //DELETE
 export const deletePost = async (token, id) => {
   return await api.delete(`/api/post/${id}`, {
@@ -67,15 +85,16 @@ export const deletePost = async (token, id) => {
   });
 };
 
+export const deleteLike = async (id) => {
+  return await api.delete(`/api/like/${id}`);
+};
+
+export const deleteComment = async (id) => {
+  return await api.delete(`/api/comment/${id}`);
+};
 //PUT
 export const editPost = async (postData) => {
-  console.log("1111111");
-  // delete postData.id;
-  // const obj = {
-  //   ...postData,
-  //   draft: postData.draft + "",
-  //   user_id: JSON.parse(getFromLocalStorage("userData")).id,
-  // };
+  console.log(postData, "edit");
   return await api.put(`/api/post/`, postData);
 };
 

@@ -1,27 +1,27 @@
 import { Link } from "react-router-dom";
 import "./Home.scss";
-import { AiFillHeart } from "react-icons/ai";
-import { FaCommentAlt } from "react-icons/fa";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { useEffect } from "react";
-import { getFromLocalStorage } from "../../api/api";
+import { getAllPosts, getFromLocalStorage } from "../../api/api";
 import PostCard from "./postcard/PostCard";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
 
-  // useEffect(() => {
-  //   async function getData() {
-  //     try {
-  //       const { data } = await getAllPosts(getFromLocalStorage("accessToken"));
-  //       console.log(data);
-  //       setPosts(data);
-  //     } catch (error) {
-  //       console.log(error.message);
-  //     }
-  //   }
-  //   getData();
-  // }, []);
+  const getAllPostsFunction = useCallback(async () => {
+    try {
+      const { data } = await getAllPosts(getFromLocalStorage("accessToken"));
+      console.log(data);
+      setPosts(data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }, []);
+
+  useEffect(() => {
+    getAllPostsFunction();
+  }, [getAllPostsFunction]);
+
   return (
     <section className="home">
       <aside className="home-top">
@@ -53,38 +53,32 @@ const Home = () => {
       <div className="home-content">
         <h1>Home</h1>
         <div className="home-content-posts">
-          {/* {posts &&
-            posts.map(({ title, id, description }) => {
-              return (
-                <PostCard title={title} key={id} description={description} />
-              );
-            })} */}
-          <div className="home-content-posts-post">
-            <div className="home-content-posts-post-content">
-              <h1>Title</h1>
-              <p>
-                Ցրտահա՜ր, հողմավա՚ր. Դողացին մեղմաբար Տերևները դե ղին, Պատեցին
-                իմ ուղին...
-              </p>
-              <span>
-                <Link to={"/"}>V.Teryan</Link>
-              </span>
-            </div>
-            <div className="home-content-posts-post-buttons">
-              <div className="like">
-                <AiFillHeart />
-                <span>Հավանել</span>
-              </div>
-              <div className="comment">
-                <FaCommentAlt />
-                <span>Մեկնաբանել</span>
-              </div>
-            </div>
-          </div>
-
-          {/* <div className="home-content-posts-post"></div> */}
-          {/* <div className="home-content-posts-post"></div>
-          <div className="home-content-posts-post"></div> */}
+          {posts &&
+            posts.map(
+              ({
+                title,
+                id,
+                description,
+                likes,
+                username,
+                comments,
+                is_liked,
+              }) => {
+                return (
+                  <PostCard
+                    title={title}
+                    key={id}
+                    id={id}
+                    description={description}
+                    likes={likes}
+                    username={username}
+                    comments={comments}
+                    getAllPostsFunction={getAllPostsFunction}
+                    is_liked={is_liked}
+                  />
+                );
+              }
+            )}
         </div>
       </div>
       <aside className="home-poets">
