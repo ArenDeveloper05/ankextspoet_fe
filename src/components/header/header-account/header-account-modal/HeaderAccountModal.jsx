@@ -31,6 +31,8 @@ const HeaderAccountModal = forwardRef((props, ref) => {
         className="account-modal-field"
         onClick={() => {
           localStorage.removeItem("isAuth");
+          localStorage.removeItem("accessToken");
+          localStorage.removeItem("userData");
           window.location.reload();
         }}
       >

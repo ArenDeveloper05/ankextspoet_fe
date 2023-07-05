@@ -76,6 +76,7 @@ const UserPosts = () => {
             ? posts
                 .filter((post) => post.type === "public")
                 .map((post) => {
+                  console.log(post);
                   return (
                     <UserPostsCard
                       post={post}
