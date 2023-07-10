@@ -47,6 +47,7 @@ const PostCard = ({
           id={id}
           getAllPostsFunction={getAllPostsFunction}
           setOpenComments={setOpenComments}
+          setOpenAddComent={setOpenAddComent}
         />
       )}
     </div>

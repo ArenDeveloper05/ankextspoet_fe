@@ -1,3 +1,4 @@
+import { LoadingButton } from "@mui/lab";
 import { deleteComment, getFromLocalStorage } from "../../../../../../api/api";
 
 const PostCardCommentsSettings = ({ getAllPostsFunction, id, username }) => {
@@ -5,7 +6,9 @@ const PostCardCommentsSettings = ({ getAllPostsFunction, id, username }) => {
     <div className="home-content-posts-post-comments-comment-settings">
       {username === JSON.parse(getFromLocalStorage("userData")).name && (
         <>
-          <div
+          <LoadingButton
+            variant="outlined"
+            color="error"
             className="home-content-posts-post-comments-comment-settings-delete"
             onClick={async () => {
               await deleteComment(id);
@@ -13,16 +16,22 @@ const PostCardCommentsSettings = ({ getAllPostsFunction, id, username }) => {
             }}
           >
             Delete
-          </div>
-          <div className="home-content-posts-post-comments-comment-settings-edit">
+          </LoadingButton>
+          <LoadingButton
+            className="home-content-posts-post-comments-comment-settings-edit"
+            variant="outlined"
+          >
             Edit
-          </div>
+          </LoadingButton>
         </>
       )}
       {username !== JSON.parse(getFromLocalStorage("userData")).name && (
-        <div className="home-content-posts-post-comments-comment-settings-report">
+        <LoadingButton
+          className="home-content-posts-post-comments-comment-settings-report"
+          variant="outlined"
+        >
           Report
-        </div>
+        </LoadingButton>
       )}
     </div>
   );
