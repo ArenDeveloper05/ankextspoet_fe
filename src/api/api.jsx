@@ -67,9 +67,9 @@ export const getUserPosts = async (token) => {
   });
 };
 
-export const getAllPosts = async (token) => {
+export const getAllPosts = async (token, currentPage) => {
   console.log(token);
-  return await api.get("/api/all-posts", {
+  return await api.get(`/api/all-posts?page=${currentPage}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

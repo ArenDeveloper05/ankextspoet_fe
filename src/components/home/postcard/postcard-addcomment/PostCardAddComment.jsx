@@ -4,7 +4,12 @@ import { addComment, getFromLocalStorage } from "../../../../api/api";
 import { LoadingButton } from "@mui/lab";
 import { Button, TextField } from "@mui/material";
 
-const PostCardAddComment = ({ id, getAllPostsFunction, setOpenComments }) => {
+const PostCardAddComment = ({
+  id,
+  getAllPostsFunction,
+  setOpenComments,
+  setOpenAddComent,
+}) => {
   const [value, setValue] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -35,6 +40,7 @@ const PostCardAddComment = ({ id, getAllPostsFunction, setOpenComments }) => {
       />
       <LoadingButton
         loading={loading}
+        variant="outlined"
         onClick={() => {
           if (value.trim()) {
             addCommentFunction();
@@ -48,6 +54,9 @@ const PostCardAddComment = ({ id, getAllPostsFunction, setOpenComments }) => {
         color="secondary"
         className="home-content-posts-post-addcomment-cancel"
         style={{ marginLeft: "auto" }}
+        onClick={() => {
+          setOpenAddComent(false);
+        }}
       >
         X
       </Button>

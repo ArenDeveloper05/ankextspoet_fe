@@ -4,23 +4,36 @@ import { useCallback, useState } from "react";
 import { useEffect } from "react";
 import { getAllPosts, getFromLocalStorage } from "../../api/api";
 import PostCard from "./postcard/PostCard";
+import ReactPaginate from "react-paginate";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
+  const [pageCount, setPageCount] = useState(2);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const getAllPostsFunction = useCallback(async () => {
     try {
-      const { data } = await getAllPosts(getFromLocalStorage("accessToken"));
+      const { data } = await getAllPosts(
+        getFromLocalStorage("accessToken"),
+        currentPage
+      );
       console.log(data);
       setPosts(data);
+      // setPageCount(Math.ceil(data.length / 5));
     } catch (error) {
       console.log(error.message);
     }
-  }, []);
+  }, [currentPage]);
 
   useEffect(() => {
+    console.log(currentPage);
     getAllPostsFunction();
-  }, [getAllPostsFunction]);
+  }, [currentPage]);
+
+  const handlePageChange = (selectedObject) => {
+    setCurrentPage(selectedObject.selected + 1);
+    window.scrollTo({ top: 600, behavior: "smooth" });
+  };
 
   return (
     <section className="home">
@@ -80,6 +93,23 @@ const Home = () => {
               }
             )}
         </div>
+        {posts.length !== 0 && pageCount !== null ? (
+          <ReactPaginate
+            pageCount={pageCount}
+            pageRange={2}
+            marginPagesDisplayed={2}
+            onPageChange={handlePageChange}
+            containerClassName={"home-content-pagination"}
+            previousLinkClassName={"page"}
+            breakClassName={"page"}
+            nextLinkClassName={"page"}
+            pageClassName={"page"}
+            disabledClassNae={"disabled"}
+            activeClassName={"active"}
+          />
+        ) : (
+          <div>Loading...</div>
+        )}
       </div>
       <aside className="home-poets">
         <h1>Թոփ Պոետներ</h1>
