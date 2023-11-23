@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { getAllPosts, getFromLocalStorage } from "../../api/api";
 import PostCard from "./postcard/PostCard";
 import ReactPaginate from "react-paginate";
+import TopPosts from "./top-posts/TopPosts";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -18,8 +19,8 @@ const Home = () => {
         currentPage
       );
       console.log(data);
-      setPosts(data);
-      // setPageCount(Math.ceil(data.length / 5));
+      setPosts(data.data);
+      setPageCount(Math.ceil(data.data.length / 5));
     } catch (error) {
       console.log(error.message);
     }
@@ -37,32 +38,7 @@ const Home = () => {
 
   return (
     <section className="home">
-      <aside className="home-top">
-        <h1>Թոփ գրվածքներ</h1>
-
-        <div className="home-top-list">
-          <div className="home-top-list-item">
-            <h1>Title</h1>
-            <p>
-              Ցրտահա՜ր, հողմավա՚ր. Դողացին մեղմաբար Տերևները դե ղին, Պատեցին իմ
-              ուղին...
-            </p>
-            <span>
-              <Link to={"/"}>V.Teryan</Link>
-            </span>
-          </div>
-          <div className="home-top-list-item">
-            <h1>Title</h1>
-            <p>
-              Ցրտահա՜ր, հողմավա՚ր. Դողացին մեղմաբար Տերևները դե ղին, Պատեցին իմ
-              ուղին...
-            </p>
-            <span>
-              <Link to={"/"}>V.Teryan</Link>
-            </span>
-          </div>
-        </div>
-      </aside>
+      <TopPosts />
       <div className="home-content">
         <h1>Home</h1>
         <div className="home-content-posts">

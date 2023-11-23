@@ -31,9 +31,11 @@ export const login = async (loginData) => {
     ...loginData,
   });
 };
+
 export const register = async (registerData) => {
   return await api.post("/api/user", registerData);
 };
+
 export const addPost = async (postData) => {
   const obj = {
     ...postData,
@@ -50,6 +52,7 @@ export const addComment = async (postID, userInfo) => {
 export const addLike = async (postID, userInfo) => {
   return await api.post(`/api/like/${postID}`, userInfo);
 };
+
 //GET
 export const getUserData = async (token) => {
   return await api.get("/api/user", {
@@ -70,6 +73,14 @@ export const getUserPosts = async (token) => {
 export const getAllPosts = async (token, currentPage) => {
   console.log(token);
   return await api.get(`/api/all-posts?page=${currentPage}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const getMostLiked = async (token) => {
+  return await api.get(`/api/most-liked-posts`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
