@@ -13,6 +13,13 @@ import { ToastContainer } from "react-toastify";
 import { notifyError } from "../../utils/toast/toast";
 import { Button, TextField } from "@mui/material";
 
+// video
+// import video from "../../assets/video/video3.mp4";
+import video from "../../assets/video/video2.mp4";
+// import video from "../../assets/video/video1.mp4";
+
+// =================================================
+
 const Login = () => {
   // NAVIGATION FUNCTION
   const navigate = useNavigate();
@@ -56,6 +63,7 @@ const Login = () => {
 
   return (
     <div className="login">
+      <video src={video} controls muted autoPlay loop></video>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}

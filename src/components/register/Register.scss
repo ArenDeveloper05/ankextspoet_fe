@@ -1,30 +1,51 @@
 .register {
   width: 100%;
   height: 100vh;
-  background-color: var(--account);
-  background-image: url(../../assets/images/vernatun.jpg);
+  // background-color: var(--account);
+  // background-image: url(../../assets/images/vernatun.jpg);
   // background-image: url(https://i.pinimg.com/564x/01/1f/5f/011f5fe602333c581a16a3a2a31e6028.jpg);
-  background-size: cover;
-  padding-top: 200px;
+  // background-size: cover;
+  // padding-top: 200px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   //test
+
+  & > video {
+    width: 105%;
+    // height: 100%;
+    position: absolute;
+    // top: -10px;
+    // left: 50px;
+    z-index: 0;
+  }
+
   &-container {
-    background: rgb(0 0 0 / 27%);
-    padding: 60px 20px;
-    max-width: 800px;
+    width: 600px;
+    padding: 25px;
     margin: auto;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     border-radius: 10px;
+    background: rgba(247, 237, 237, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(67, 67, 67, 0.595);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(138, 128, 128, 0.337);
     //test
+
     &-row {
       padding: 16px;
       // min-height: 400px;
       //test
 
       input {
-        background-color: rgb(255 240 211 / 78%);
-        border-radius: 20px;
+        background-color: rgba(255, 240, 211, 0.088);
+        border-radius: 5px;
       }
       > p {
         color: #cc3300;
@@ -44,14 +65,26 @@
       }
     }
     > button {
-      padding: 8px 20px;
+      width: 140px;
+      height: 40px;
       border-radius: 20px;
-      background-color: #5dbea3;
-      color: white;
+      background-color: rgba(153, 160, 153, 0.322);
+      color: #000;
       font-size: 28px;
       cursor: pointer;
       align-self: flex-end;
       font-size: 18px;
+
+      &:hover {
+        background-color: rgba(158, 141, 108, 0.386);
+      }
+    }
+
+    > a {
+      color: rgb(44, 40, 0);
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-weight: 900;
+      text-decoration: none;
     }
   }
 }

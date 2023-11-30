@@ -15,3 +15,11 @@
   max-width: 1700px;
   margin: auto;
 } */
+
+@font-face {
+  font-family: Ephesis;
+  src: url(../src/assets/fonts/Ephesis/OFL.txt);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Ephesis&display=swap');
+/* font-family: 'Ephesis', cursive; */
