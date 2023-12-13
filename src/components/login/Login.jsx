@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./Login.scss";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { ROUTER } from "../../router";
 import { Link, useNavigate } from "react-router-dom";
@@ -14,11 +13,11 @@ import { notifyError } from "../../utils/toast/toast";
 import { Button, TextField } from "@mui/material";
 
 // video
-// import video from "../../assets/video/video3.mp4";
 import video from "../../assets/video/video2.mp4";
-// import video from "../../assets/video/video1.mp4";
 
 // =================================================
+
+import "./Login.scss";
 
 const Login = () => {
   // NAVIGATION FUNCTION
@@ -63,7 +62,16 @@ const Login = () => {
 
   return (
     <div className="login">
-      <video src={video} controls muted autoPlay loop></video>
+      <video
+        src={video}
+        controls
+        muted
+        autoPlay
+        loop
+        onClick={(e) => {
+          e.preventDefault();
+        }}
+      ></video>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}

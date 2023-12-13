@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
-import "./Header.scss";
-import TypeWriterEffect from "react-typewriter-effect";
 import { ROUTER } from "../../router/index";
 import { getFromLocalStorage } from "../../api/api";
-import { FaPlusCircle } from "react-icons/fa";
+
+import TypeWriterEffect from "react-typewriter-effect";
 import HeaderAccount from "./header-account/HeaderAccount";
 import HeaderLogin from "./header-login/HeaderLogin";
 import HeaderAddPost from "./header-addpost/HeaderAddPost";
+
+import "./Header.scss";
 
 const Header = () => {
   const myAppRef = null;

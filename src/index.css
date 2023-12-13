@@ -1,25 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Ephesis&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 :root {
-  /* --account: #a6996f; */
+  --global-max-width: 1900px;
   --account: #f7efd4;
   --link: rgb(92, 65, 95);
   --input-bg: rgb(255, 254, 246);
   --dark-blue: #0c2340;
   --dark-blueviolet: #4a1942;
 }
-/* #root {
-  max-width: 1700px;
-  margin: auto;
-} */
 
 @font-face {
   font-family: Ephesis;
   src: url(../src/assets/fonts/Ephesis/OFL.txt);
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Ephesis&display=swap');
-/* font-family: 'Ephesis', cursive; */

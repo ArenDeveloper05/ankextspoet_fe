@@ -1,12 +1,8 @@
-import React from "react";
+import { useState, useEffect, useRef } from "react";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { getFromLocalStorage } from "../../../api/api";
-import { Link, useNavigate } from "react-router-dom";
-import { ROUTER } from "../../../router";
-import { useState } from "react";
+
 import HeaderAccountModal from "./header-account-modal/HeaderAccountModal";
-import { useEffect } from "react";
-import { useRef } from "react";
 
 const HeaderAccount = () => {
   const iconRef = useRef();
@@ -44,7 +40,7 @@ const HeaderAccount = () => {
       >
         <RiAccountCircleFill />
       </div>
-      {accountOpen && <HeaderAccountModal ref={accountModalRef} />}
+      <HeaderAccountModal ref={accountModalRef} accountOpen={accountOpen} />
     </>
   );
 };

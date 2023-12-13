@@ -1,36 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Ephesis&display=swap");
-/* font-family: 'Ephesis', cursive; */
 
 .login {
   width: 100%;
   height: 100vh;
   background-color: black;
-  // background-color: var(--account);
-  // background-image: url(../../assets/images/vernatun.jpg);
-  // background-image: url(https://i.pinimg.com/564x/01/1f/5f/011f5fe602333c581a16a3a2a31e6028.jpg);
-  // background-image: url("https://i.pinimg.com/564x/d8/a1/5f/d8a15f0b16f5fd5a3b4b8ab7242002a5.jpg");
-  // background-image: url("https://i.pinimg.com/564x/7b/49/79/7b4979afc6d0620a21678ba17a64d210.jpg");
-  // background-size: cover;
-  // padding-top: 200px;
   position: relative;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  //test
-
   & > video {
     width: 105%;
-    // height: 100%;
     position: absolute;
-    // top: -10px;
-    // left: 50px;
     z-index: 0;
+    &::-webkit-media-controls {
+      display: none !important;
+    }
   }
 
   &-container {
     padding: 20px;
-    // border: 1px solid red;
     width: 450px;
     position: absolute;
     z-index: 1;
@@ -38,7 +27,6 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    /* From https://css.glass */
     background: rgba(247, 237, 237, 0.2);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(67, 67, 67, 0.595);
@@ -93,5 +81,86 @@
       font-weight: 900;
       text-decoration: none;
     }
+  }
+}
+
+@media only screen and (max-width: 1620px) {
+  video {
+    transform: scale(1.1);
+  }
+}
+
+@media only screen and (max-width: 1500px) {
+  video {
+    transform: scale(1.2);
+  }
+}
+
+@media only screen and (max-width: 1366px) {
+  video {
+    transform: scale(1.3);
+  }
+}
+
+@media only screen and (max-width: 1266px) {
+  video {
+    transform: scale(1.5);
+  }
+}
+
+@media only screen and (max-width: 1095px) {
+  video {
+    transform: scale(1.7);
+  }
+}
+
+@media only screen and (max-width: 1095px) {
+  video {
+    transform: scale(1.7);
+  }
+}
+
+@media only screen and (max-width: 966px) {
+  video {
+    transform: scale(2);
+  }
+}
+
+@media only screen and (max-width: 824px) {
+  video {
+    transform: scale(2.3);
+  }
+}
+
+@media only screen and (max-width: 715px) {
+  video {
+    transform: scale(2.6);
+  }
+}
+
+@media only screen and (max-width: 635px) {
+  video {
+    transform: scale(3);
+  }
+  .login-container {
+    transform: scale(0.8);
+  }
+}
+
+@media only screen and (max-width: 549px) {
+  video {
+    transform: scale(3.2);
+  }
+}
+
+@media only screen and (max-width: 514px) {
+  video {
+    transform: scale(3.4);
+  }
+}
+
+@media only screen and (max-width: 484px) {
+  video {
+    transform: scale(3.7);
   }
 }

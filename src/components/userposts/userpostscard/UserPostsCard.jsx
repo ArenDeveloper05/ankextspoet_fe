@@ -1,11 +1,11 @@
-import parse from "html-react-parser";
 import { useState } from "react";
-import Editor from "../../editor/Editor";
 import { useEffect } from "react";
 import { deletePost, editPost, getFromLocalStorage } from "../../../api/api";
-import { Button } from "@mui/material";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { LoadingButton } from "@mui/lab";
+
+import parse from "html-react-parser";
+import Editor from "../../editor/Editor";
 
 const UserPostsCard = ({ post, id, getData }) => {
   const [edit, setEdit] = useState(false);

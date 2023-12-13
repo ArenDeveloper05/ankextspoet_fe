@@ -1,5 +1,6 @@
-import PostCardAddComment from "./postcard-addcomment/PostCardAddComment";
 import { useState } from "react";
+
+import PostCardAddComment from "./postcard-addcomment/PostCardAddComment";
 import PostCardButtons from "./postcard-buttons/PostCardButtons";
 import PostCardContent from "./postcard-content/PostCardContent";
 import PostCardLikes from "./postcard-likes/PostCardLikes";

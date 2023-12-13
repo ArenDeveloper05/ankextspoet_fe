@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./Register.scss";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 // Formik components and Yup
 import { Formik, Form } from "formik";
@@ -15,6 +14,8 @@ import { Button, TextField } from "@mui/material";
 
 // video
 import video from "../../assets/video/video2.mp4";
+
+import "./Register.scss";
 
 const Register = () => {
   // NAVIGATION FUNCTION
@@ -54,7 +55,16 @@ const Register = () => {
 
   return (
     <div className="register">
-      <video src={video} controls muted autoPlay loop></video>
+      <video
+        src={video}
+        controls
+        muted
+        autoPlay
+        loop
+        onClick={(e) => {
+          e.preventDefault();
+        }}
+      ></video>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
