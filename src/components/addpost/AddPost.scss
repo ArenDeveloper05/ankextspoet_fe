@@ -1,10 +1,51 @@
-.add-post {
-  &-container {
-    border: solid;
+.add-post-bg {
+  background-image: url(../../assets/images/book.jpg);
+  background-size: cover;
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  .add-post-container {
     margin: auto;
+    margin-top: 100px;
     max-width: 1200px;
     padding: 24px;
-    //test
     min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 20px;
+    backdrop-filter: blur(20px);
+    .add-post-container-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      > button {
+        padding: 10px 20px;
+        outline: none;
+        border: none;
+        background: rgb(226, 247, 212);
+        background: linear-gradient(
+          150deg,
+          rgba(226, 247, 212, 1) 31%,
+          rgba(107, 177, 141, 1) 94%
+        );
+        cursor: pointer;
+      }
+      > button:last-child {
+        background: rgb(241, 127, 108);
+        background: rgb(170, 116, 107);
+        background: linear-gradient(
+          150deg,
+          rgba(170, 116, 107, 0.7763480392156863) 31%,
+          rgba(232, 91, 91, 1) 94%
+        );
+      }
+    }
+    input[type="checkbox"],
+    input[type="radio"] {
+      width: 20px;
+      height: 20px;
+    }
   }
 }

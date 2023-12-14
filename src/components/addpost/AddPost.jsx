@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./AddPost.scss";
 import { addPost } from "../../api/api";
 import Editor from "../editor/Editor";
+import { TextField } from "@mui/material";
 
 const AddPost = () => {
   const [post, setPost] = useState({
@@ -21,12 +22,14 @@ const AddPost = () => {
   }
 
   const addPostFunction = async () => {
-    try {
-      await addPost(post);
-      clearPostData();
-      console.log("gnac");
-    } catch (err) {
-      console.log(err);
+    if (post.title.trim() && post.description.trim()) {
+      try {
+        await addPost(post);
+        clearPostData();
+        console.log("gnac");
+      } catch (err) {
+        console.log(err);
+      }
     }
   };
 
@@ -53,9 +56,9 @@ const AddPost = () => {
 
   const handleChange = (e) => {
     const type = e.target.type;
-    if (type == "radio") {
+    if (type === "radio") {
       handleRadioChange(e);
-    } else if (type == "checkbox") {
+    } else if (type === "checkbox") {
       handleCheckboxChange(e);
     } else {
       handleInputChange(e);
@@ -69,17 +72,16 @@ const AddPost = () => {
   };
 
   return (
-    <div className="add-post">
+    <div className="add-post-bg">
       <div className="add-post-container">
         <div className="add-post-container-row">
-          <input
-            type="text"
-            id="post-title"
-            value={post.title}
+          <TextField
+            label="Վերնագիր"
+            variant="filled"
             name="title"
+            value={post.title}
             onChange={handleChange}
           />
-          <label htmlFor="post-title">Վերնագիր</label>
         </div>
         <div className="add-post-container-row">
           <Editor changeData={changeEditorData} data={post.description} />
@@ -115,7 +117,7 @@ const AddPost = () => {
         </div>
         <div className="add-post-container-row">
           <button onClick={addPostFunction}>Հրապարակել</button>
-          <button>Չեղարկել</button>
+          <button onClick={clearPostData}>Չեղարկել</button>
         </div>
       </div>
     </div>

@@ -9,21 +9,20 @@ const PostCardButtons = ({
   getAllPostsFunction,
   is_liked,
 }) => {
+  async function likeFunction() {
+    if (is_liked) {
+      await deleteLike(id);
+    } else {
+      await addLike(id, {
+        user_id: JSON.parse(getFromLocalStorage("userData")).id,
+      });
+    }
+    getAllPostsFunction();
+  }
+
   return (
     <div className="home-content-posts-post-buttons">
-      <div
-        className="like"
-        onClick={async () => {
-          if (is_liked) {
-            await deleteLike(id);
-          } else {
-            await addLike(id, {
-              user_id: JSON.parse(getFromLocalStorage("userData")).id,
-            });
-          }
-          getAllPostsFunction();
-        }}
-      >
+      <div className="like" onClick={likeFunction}>
         <AiFillHeart style={{ color: is_liked ? "red" : "tomato" }} />
         <span>Հավանել</span>
       </div>
