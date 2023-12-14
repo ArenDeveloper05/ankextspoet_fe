@@ -19,3 +19,8 @@
   font-family: Ephesis;
   src: url(../src/assets/fonts/Ephesis/OFL.txt);
 }
+
+@font-face {
+  font-family: SosStm;
+  src: url(../src/assets/fonts/SosStm/SosStm.ttf);
+}

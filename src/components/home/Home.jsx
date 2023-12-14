@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
-import "./Home.scss";
 import { useCallback, useState } from "react";
 import { useEffect } from "react";
 import { getAllPosts, getFromLocalStorage } from "../../api/api";
+
 import PostCard from "./postcard/PostCard";
 import ReactPaginate from "react-paginate";
 import TopPosts from "./top-posts/TopPosts";
+
+import "./Home.scss";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -40,7 +42,6 @@ const Home = () => {
     <section className="home">
       <TopPosts />
       <div className="home-content">
-        <h1>Home</h1>
         <div className="home-content-posts">
           {posts &&
             posts.map(
