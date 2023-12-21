@@ -35,7 +35,7 @@ const TopPosts = () => {
               </div>
             );
           })}
-        {/* <div className="home-top-list-item">
+        <div className="home-top-list-item">
           <h1>Title</h1>
           <p>
             Ցրտահա՜ր, հողմավա՚ր. Դողացին մեղմաբար Տերևները դե ղին, Պատեցին իմ
@@ -54,7 +54,7 @@ const TopPosts = () => {
           <span>
             <Link to={"/"}>V.Teryan</Link>
           </span>
-        </div> */}
+        </div>
       </div>
     </aside>
   );

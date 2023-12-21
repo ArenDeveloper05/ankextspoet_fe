@@ -1,4 +1,3 @@
-import React from "react";
 import { AiFillHeart } from "react-icons/ai";
 import { FaCommentAlt } from "react-icons/fa";
 import { addLike, deleteLike, getFromLocalStorage } from "../../../../api/api";

@@ -1,10 +1,11 @@
 import { useState } from "react";
-import "./UserPosts.scss";
 import UserPostsCard from "./userpostscard/UserPostsCard";
 import { getFromLocalStorage, getUserPosts } from "../../api/api";
 import { useEffect } from "react";
 import ReactLoading from "react-loading";
 import { CONFIG } from "../../config";
+
+import "./UserPosts.scss";
 
 const UserPosts = () => {
   const [posts, setPosts] = useState([]);

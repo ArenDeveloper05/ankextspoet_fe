@@ -4,5 +4,6 @@ export const ROUTER = {
   REGISTER_ROUTE: "/register",
   ACCOUNT_ROUTE: "/account",
   ADD_POST_ROUTE: "/add-post",
-  MY_POSTS_ROUTE: "my-posts",
+  MY_POSTS_ROUTE: "/my-posts",
+  EXERCISE_PAGE_ROUTE: "/exercice",
 };

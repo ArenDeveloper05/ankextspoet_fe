@@ -51,7 +51,8 @@ const Login = () => {
       const { data } = await getUserData(access_token);
       changeInLocalStorage("isAuth", "true");
       changeInLocalStorage("userData", JSON.stringify(data));
-      navigate(ROUTER.HOME_ROUTE);
+      // navigate(ROUTER.HOME_ROUTE);
+      navigate(ROUTER.EXERCISE_PAGE_ROUTE);
       window.location.reload();
       console.log(data);
     } catch (error) {

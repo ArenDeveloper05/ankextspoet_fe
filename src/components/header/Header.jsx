@@ -8,6 +8,7 @@ import HeaderLogin from "./header-login/HeaderLogin";
 import HeaderAddPost from "./header-addpost/HeaderAddPost";
 
 import "./Header.scss";
+import { navConfig } from "../../config";
 
 const Header = () => {
   const myAppRef = null;
@@ -16,15 +17,14 @@ const Header = () => {
       <header>
         <nav>
           <ul>
-            <li>
-              <Link to={ROUTER.HOME_ROUTE}>Home</Link>
-            </li>
-            <li>
-              <Link to={""}>About</Link>
-            </li>
-            <li>
-              <Link to={""}>Contact</Link>
-            </li>
+            {navConfig &&
+              navConfig.map(({ id, title, link }) => {
+                return (
+                  <li key={id}>
+                    <Link to={link ? link : "/"}>{title ? title : ""}</Link>
+                  </li>
+                );
+              })}
           </ul>
         </nav>
         <div className="account">

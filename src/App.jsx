@@ -1,16 +1,18 @@
-import "./App.css";
 import { Routes, Route } from "react-router-dom";
-//ROUTES
 import { ROUTER } from "./router/index";
+import { getFromLocalStorage } from "./api/api";
+
 //PAGES
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import ProtectedRoute from "./router/ProtectedRoute";
-import { getFromLocalStorage } from "./api/api";
 import AccountPage from "./pages/AccountPage";
 import AddPostPage from "./pages/AddPostPage";
 import UserPostsPage from "./pages/UserPostsPage";
+import ExercisePage from "./pages/ExercisePage";
+
+import "./App.css";
 
 function App() {
   const isAuth = getFromLocalStorage("isAuth") === "true" ? true : false;
@@ -58,6 +60,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path={ROUTER.EXERCISE_PAGE_ROUTE} element={<ExercisePage />} />
         <Route path="*" element={<p>There's nothing here: 404!</p>} />
       </Routes>
     </section>
