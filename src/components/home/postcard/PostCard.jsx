@@ -23,7 +23,7 @@ const PostCard = ({
   const [openComments, setOpenComments] = useState(false);
 
   return (
-    <Atropos className="my-atropos" activeOffset={40} shadowScale={1.05}>
+    <Atropos activeOffset={40} shadowScale={1.05}>
       <div className="home-content-posts-post">
         <PostCardContent
           title={title}

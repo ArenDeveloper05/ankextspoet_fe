@@ -2,13 +2,18 @@ import { Link } from "react-router-dom";
 import { getFromLocalStorage, getMostLiked } from "../../../api/api";
 import { useEffect, useState } from "react";
 
+import parse from "html-react-parser";
+import Atropos from "atropos/react";
+
+import "atropos/css";
+
 const TopPosts = () => {
   const [tops, setTops] = useState([]);
   const getMostLikedFunction = async () => {
     try {
       const { data } = await getMostLiked(getFromLocalStorage("accessToken"));
       console.log(data);
-      setTops(data.data);
+      setTops(data);
     } catch (error) {
       console.log(error.message);
     }
@@ -24,37 +29,19 @@ const TopPosts = () => {
 
       <div className="home-top-list">
         {tops &&
-          tops.map(({ id, title }) => {
+          tops.map(({ id, title, description, username }) => {
             return (
-              <div className="home-top-list-item" key={id}>
-                <h1>Title</h1>
-                <p>{title && title}</p>
-                <span>
-                  <Link to={"/"}>V.Teryan</Link>
-                </span>
-              </div>
+              <Atropos activeOffset={40} shadowScale={1} key={id}>
+                <div className="home-top-list-item">
+                  <h1>{title && title}</h1>
+                  <p>{description && parse(description)}</p>
+                  <span>
+                    <Link to={"/"}>{username ? username : ""}</Link>
+                  </span>
+                </div>
+              </Atropos>
             );
           })}
-        <div className="home-top-list-item">
-          <h1>Title</h1>
-          <p>
-            Ցրտահա՜ր, հողմավա՚ր. Դողացին մեղմաբար Տերևները դե ղին, Պատեցին իմ
-            ուղին...
-          </p>
-          <span>
-            <Link to={"/"}>V.Teryan</Link>
-          </span>
-        </div>
-        <div className="home-top-list-item">
-          <h1>Title</h1>
-          <p>
-            Ցրտահա՜ր, հողմավա՚ր. Դողացին մեղմաբար Տերևները դե ղին, Պատեցին իմ
-            ուղին...
-          </p>
-          <span>
-            <Link to={"/"}>V.Teryan</Link>
-          </span>
-        </div>
       </div>
     </aside>
   );

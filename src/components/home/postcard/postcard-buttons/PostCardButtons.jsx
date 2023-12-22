@@ -1,6 +1,8 @@
 import { AiFillHeart } from "react-icons/ai";
 import { FaCommentAlt } from "react-icons/fa";
 import { addLike, deleteLike, getFromLocalStorage } from "../../../../api/api";
+import { useNavigate } from "react-router-dom";
+import { ROUTER } from "../../../../router";
 
 const PostCardButtons = ({
   setOpenAddComent,
@@ -8,15 +10,20 @@ const PostCardButtons = ({
   getAllPostsFunction,
   is_liked,
 }) => {
+  const navigate = useNavigate();
   async function likeFunction() {
-    if (is_liked) {
-      await deleteLike(id);
+    if (getFromLocalStorage("isAuth") === "true") {
+      if (is_liked) {
+        await deleteLike(id);
+      } else {
+        await addLike(id, {
+          user_id: JSON.parse(getFromLocalStorage("userData")).id,
+        });
+      }
+      getAllPostsFunction();
     } else {
-      await addLike(id, {
-        user_id: JSON.parse(getFromLocalStorage("userData")).id,
-      });
+      navigate(ROUTER.LOGIN_ROUTE);
     }
-    getAllPostsFunction();
   }
 
   return (

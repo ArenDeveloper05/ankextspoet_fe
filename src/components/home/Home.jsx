@@ -22,7 +22,7 @@ const Home = () => {
       );
       console.log(data);
       setPosts(data.data);
-      setPageCount(Math.ceil(data.data.length / 5));
+      setPageCount(Math.ceil(data.total / 5));
     } catch (error) {
       console.log(error.message);
     }
@@ -31,7 +31,7 @@ const Home = () => {
   useEffect(() => {
     console.log(currentPage);
     getAllPostsFunction();
-  }, [currentPage]);
+  }, [currentPage, getAllPostsFunction]);
 
   const handlePageChange = (selectedObject) => {
     setCurrentPage(selectedObject.selected + 1);
@@ -77,9 +77,9 @@ const Home = () => {
             marginPagesDisplayed={2}
             onPageChange={handlePageChange}
             containerClassName={"home-content-pagination"}
-            previousLinkClassName={"page"}
+            previousLinkClassName={""}
             breakClassName={"page"}
-            nextLinkClassName={"page"}
+            nextLinkClassName={""}
             pageClassName={"page"}
             disabledClassNae={"disabled"}
             activeClassName={"active"}
