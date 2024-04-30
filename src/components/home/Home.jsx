@@ -53,6 +53,7 @@ const Home = () => {
                 username,
                 comments,
                 is_liked,
+                authorId,
               }) => {
                 return (
                   <PostCard
@@ -65,6 +66,7 @@ const Home = () => {
                     comments={comments}
                     getAllPostsFunction={getAllPostsFunction}
                     is_liked={is_liked}
+                    authorId={authorId}
                   />
                 );
               }

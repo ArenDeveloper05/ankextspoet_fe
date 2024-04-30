@@ -6,4 +6,5 @@ export const ROUTER = {
   ADD_POST_ROUTE: "/add-post",
   MY_POSTS_ROUTE: "/my-posts",
   EXERCISE_PAGE_ROUTE: "/exercice",
+  SINGLE_USER_PAGE_ROUTE: "/user/:id",
 };

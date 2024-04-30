@@ -18,6 +18,7 @@ const PostCard = ({
   id,
   getAllPostsFunction,
   is_liked,
+  authorId,
 }) => {
   const [openAddComment, setOpenAddComent] = useState(false);
   const [openComments, setOpenComments] = useState(false);
@@ -29,6 +30,7 @@ const PostCard = ({
           title={title}
           description={description}
           username={username}
+          authorId={authorId}
         />
         <PostCardLikes
           likes={likes}

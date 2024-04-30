@@ -13,6 +13,7 @@ import UserPostsPage from "./pages/UserPostsPage";
 import ExercisePage from "./pages/ExercisePage";
 
 import "./App.css";
+import SingleUserPage from "./pages/SingleUserPage";
 
 function App() {
   const isAuth = getFromLocalStorage("isAuth") === "true" ? true : false;
@@ -61,6 +62,14 @@ function App() {
           }
         />
         <Route path={ROUTER.EXERCISE_PAGE_ROUTE} element={<ExercisePage />} />
+        <Route
+          path={ROUTER.SINGLE_USER_PAGE_ROUTE}
+          element={
+            <ProtectedRoute isAuth={!isAuth} redirectPath={ROUTER.HOME_ROUTE}>
+              <SingleUserPage />
+            </ProtectedRoute>
+          }
+        />
         <Route path="*" element={<p>There's nothing here: 404!</p>} />
       </Routes>
     </section>
