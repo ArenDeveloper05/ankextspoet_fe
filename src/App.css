@@ -5,13 +5,16 @@
   display: flex;
   list-style: none;
   font-size: 30px;
+  margin-top: 40px;
 }
 
 .page {
-  padding: 10px 20px;
   border-radius: 6px;
   margin-right: 10px;
   cursor: pointer;
+  background-color: black;
+  color: var(--account);
+  box-shadow: 1px 1px 5px var(--account);
 }
 
 .disabled {
@@ -22,11 +25,11 @@
   box-shadow: 1px 1px 10px black;
   font-weight: 900;
   background-color: var(--account);
+  color: black;
 }
 
 .previous,
 .next {
-  padding: 10px;
   border-radius: 6px;
   margin-right: 10px;
   cursor: pointer;
@@ -38,6 +41,12 @@
   font-size: 23px;
 }
 
+.next a,
+.previous a,
+.page a {
+  padding: 10px 20px;
+  display: blockx;
+}
 .break {
   padding: 10px;
 }

@@ -48,17 +48,17 @@ export const accountModalConfig = [
 export const navConfig = [
   {
     id: 1,
-    title: "Home",
+    title: "Գլխավոր",
     link: ROUTER.HOME_ROUTE,
   },
   {
     id: 2,
-    title: "About",
+    title: "Մեր Մասին",
     link: ROUTER.HOME_ROUTE,
   },
-  {
-    id: 3,
-    title: "Exercise",
-    link: ROUTER.EXERCISE_PAGE_ROUTE,
-  },
+  // {
+  //   id: 3,
+  //   title: "Exercise",
+  //   link: ROUTER.EXERCISE_PAGE_ROUTE,
+  // },
 ];

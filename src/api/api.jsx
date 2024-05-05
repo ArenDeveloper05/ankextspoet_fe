@@ -87,6 +87,14 @@ export const getMostLiked = async (token) => {
   });
 };
 
+export const getSingleUser = async (token, id) => {
+  return await api.get(`/api/user/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
 //DELETE
 export const deletePost = async (token, id) => {
   return await api.delete(`/api/post/${id}`, {
@@ -103,6 +111,7 @@ export const deleteLike = async (id) => {
 export const deleteComment = async (id) => {
   return await api.delete(`/api/comment/${id}`);
 };
+
 //PUT
 export const editPost = async (postData) => {
   console.log(postData, "edit");

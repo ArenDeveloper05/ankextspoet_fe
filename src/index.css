@@ -1,4 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Ephesis&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap");
+
+@font-face {
+  font-family: Ephesis;
+  src: url(../src/assets/fonts/Ephesis/OFL.txt);
+}
+
+@font-face {
+  font-family: SosStm;
+  src: url(../src/assets/fonts/SosStm/SosStm.ttf);
+}
 
 * {
   margin: 0;
@@ -13,14 +24,7 @@
   --input-bg: rgb(255, 254, 246);
   --dark-blue: #0c2340;
   --dark-blueviolet: #4a1942;
-}
-
-@font-face {
-  font-family: Ephesis;
-  src: url(../src/assets/fonts/Ephesis/OFL.txt);
-}
-
-@font-face {
-  font-family: SosStm;
-  src: url(../src/assets/fonts/SosStm/SosStm.ttf);
+  --ff1: Ephesis;
+  --ff2: SosStm;
+  --ff3: "PT Sans Narrow", sans-serif;
 }

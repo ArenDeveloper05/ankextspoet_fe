@@ -1,10 +1,17 @@
 import { useEffect, useState } from "react";
-import "./AddPost.scss";
 import { addPost } from "../../api/api";
-import Editor from "../editor/Editor";
 import { TextField } from "@mui/material";
+import { notifyError, notifySuccess } from "../../utils/toast/toast";
+import { ToastContainer } from "react-toastify";
+import { ROUTER } from "../../router";
+import { useNavigate } from "react-router-dom";
+
+import Editor from "../editor/Editor";
+
+import "./AddPost.scss";
 
 const AddPost = () => {
+  const navigate = useNavigate();
   const [post, setPost] = useState({
     title: "",
     description: "",
@@ -26,9 +33,13 @@ const AddPost = () => {
       try {
         await addPost(post);
         clearPostData();
-        console.log("gnac");
+        notifySuccess("Հրապարակումը տեղի ունեցավ։");
+        setTimeout(() => {
+          navigate(ROUTER.HOME_ROUTE);
+        }, 3000);
       } catch (err) {
         console.log(err);
+        notifyError("Սխալ տեղի ունեցավ։");
       }
     }
   };
@@ -74,6 +85,7 @@ const AddPost = () => {
   return (
     <div className="add-post-bg">
       <div className="add-post-container">
+        <h1>Ավելացրեք նոր հրապարակում</h1>
         <div className="add-post-container-row">
           <TextField
             label="Վերնագիր"
@@ -120,6 +132,7 @@ const AddPost = () => {
           <button onClick={clearPostData}>Չեղարկել</button>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

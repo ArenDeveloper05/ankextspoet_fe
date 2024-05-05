@@ -15,7 +15,7 @@ const PostCardLikes = ({ likes, comments, setOpenComments }) => {
           }
         }}
       >
-        {comments.length} comments
+        {comments.length} մեկնաբանություն
       </p>
     </div>
   );

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { getFromLocalStorage } from "../../../api/api";
+import { FaCopyright } from "react-icons/fa";
 
 import PostCardAddComment from "./postcard-addcomment/PostCardAddComment";
 import PostCardButtons from "./postcard-buttons/PostCardButtons";
@@ -24,7 +26,7 @@ const PostCard = ({
   const [openComments, setOpenComments] = useState(false);
 
   return (
-    <Atropos activeOffset={40} shadowScale={1.05}>
+    <Atropos activeOffset={10} shadowScale={1.02} duration={100}>
       <div className="home-content-posts-post">
         <PostCardContent
           title={title}
@@ -56,6 +58,11 @@ const PostCard = ({
             setOpenComments={setOpenComments}
             setOpenAddComent={setOpenAddComent}
           />
+        )}
+        {authorId === JSON.parse(getFromLocalStorage("userData")).id && (
+          <div className="home-content-posts-post-copyright">
+            <FaCopyright />
+          </div>
         )}
       </div>
     </Atropos>

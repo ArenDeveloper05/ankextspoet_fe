@@ -41,10 +41,13 @@ const Header = () => {
 
       <TypeWriterEffect
         textStyle={{
-          fontFamily: "Red Hat Display",
-          color: "#c3b9b9",
+          fontFamily: "var(--ff2)",
+          textShadow: "10px 8px 10px black",
+          color: "wheat",
           fontWeight: 800,
-          fontSize: "60px",
+          fontSize: "50px",
+          lineHeight: "80px",
+          letterSpacing: "6px",
         }}
         startDelay={100}
         cursorColor="white"
@@ -54,7 +57,7 @@ const Header = () => {
           "Եվ ժամանակից առաջ են ընկնում,",
           "Դրա համար էլ չեն ներում նրանց:",
         ]}
-        typeSpeed={50}
+        typeSpeed={100}
         scrollArea={myAppRef}
         loop={true}
         nextTextDelay={1000}

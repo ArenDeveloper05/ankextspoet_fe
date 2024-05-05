@@ -85,7 +85,7 @@ const Login = () => {
                   label="Ձեր էլ փոստը"
                   fullWidth={true}
                   type="text"
-                  error={props.errors.username}
+                  error={props.errors.username && props.touched.username}
                   placeholder="example@mail.ru"
                   name="username"
                   value={props.values.username}
@@ -102,7 +102,7 @@ const Login = () => {
                   <TextField
                     label="Ձեր գաղտնաբառը"
                     fullWidth={true}
-                    error={props.errors.password}
+                    error={props.errors.password && props.touched.password}
                     type={visiblePassword ? "text" : "password"}
                     placeholder="Example1234"
                     name="password"

@@ -29,7 +29,7 @@ const PostCardButtons = ({
   return (
     <div className="home-content-posts-post-buttons">
       <div className="like" onClick={likeFunction}>
-        <AiFillHeart style={{ color: is_liked ? "red" : "tomato" }} />
+        <AiFillHeart style={{ color: is_liked ? "red" : "#ff927f" }} />
         <span>Հավանել</span>
       </div>
       <div
