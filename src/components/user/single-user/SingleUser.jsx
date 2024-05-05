@@ -5,6 +5,7 @@ import { RiAccountCircleFill } from "react-icons/ri";
 import { getFromLocalStorage, getSingleUser } from "../../../api/api";
 
 import "./SingleUser.scss";
+import SingleUserPosts from "./single-user-posts/SingleUserPosts";
 
 const SingleUser = () => {
   const { id } = useParams();
@@ -45,7 +46,8 @@ const SingleUser = () => {
         <p>{states.loading ? "loading..." : user.email}</p>
       </aside>
       <div className="single-user-content">
-        <h1>{id}</h1>
+        <h1>Հրապարակումներ</h1>
+        <SingleUserPosts posts={user.posts} />
       </div>
     </div>
   );

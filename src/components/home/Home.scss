@@ -63,7 +63,7 @@
             align-self: flex-end;
             > a {
               text-decoration: none;
-              color: black;
+              color: var(--dark-blue);
               &:hover {
                 color: var(--link);
               }

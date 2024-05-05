@@ -19,6 +19,12 @@
       position: relative;
       > span {
         align-self: flex-end;
+        a {
+          color: var(--dark-blue);
+          font-weight: 600;
+          font-size: 18px;
+          text-decoration: none;
+        }
       }
     }
   }
