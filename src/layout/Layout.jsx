@@ -4,11 +4,11 @@ import Footer from "../components/footer/Footer";
 
 import "./Layout.scss";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, header, scroll }) => {
   return (
     <>
-      <Header />
-      <main>{children}</main>
+      <Header header={header} scroll={scroll} />
+      <main style={!header ? { marginTop: "100px" } : {}}>{children}</main>
       <Footer />
     </>
   );

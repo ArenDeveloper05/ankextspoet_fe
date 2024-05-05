@@ -33,7 +33,7 @@ const PostCardAddComment = ({
   return (
     <div className="home-content-posts-post-addcomment">
       <TextField
-        label="Your comment"
+        label="Ձեր մեկնաբանությունը"
         variant="filled"
         value={value}
         onChange={(e) => setValue(e.target.value)}
@@ -47,7 +47,7 @@ const PostCardAddComment = ({
           }
         }}
       >
-        Add comment
+        Մեկնաբանել
       </LoadingButton>
       <Button
         variant="text"

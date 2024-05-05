@@ -54,7 +54,7 @@ export const navConfig = [
   {
     id: 2,
     title: "Մեր Մասին",
-    link: ROUTER.HOME_ROUTE,
+    link: ROUTER.ABOUT_PAGE_ROUTE,
   },
   // {
   //   id: 3,

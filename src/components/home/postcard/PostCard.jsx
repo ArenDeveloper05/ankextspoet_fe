@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { getFromLocalStorage } from "../../../api/api";
-import { FaCopyright } from "react-icons/fa";
 
 import PostCardAddComment from "./postcard-addcomment/PostCardAddComment";
 import PostCardButtons from "./postcard-buttons/PostCardButtons";
@@ -10,6 +9,7 @@ import PostCardComments from "./postcard-comments/PostCardComments";
 import Atropos from "atropos/react";
 
 import "atropos/css";
+import CopyrightIcon from "../../common/copyright-icon/CopyrightIcon";
 
 const PostCard = ({
   title,
@@ -25,6 +25,8 @@ const PostCard = ({
   const [openAddComment, setOpenAddComent] = useState(false);
   const [openComments, setOpenComments] = useState(false);
 
+  const user = JSON.parse(getFromLocalStorage("userData"));
+
   return (
     <Atropos activeOffset={10} shadowScale={1.02} duration={100}>
       <div className="home-content-posts-post">
@@ -33,6 +35,7 @@ const PostCard = ({
           description={description}
           username={username}
           authorId={authorId}
+          user={user}
         />
         <PostCardLikes
           likes={likes}
@@ -59,10 +62,8 @@ const PostCard = ({
             setOpenAddComent={setOpenAddComent}
           />
         )}
-        {authorId === JSON.parse(getFromLocalStorage("userData")).id && (
-          <div className="home-content-posts-post-copyright">
-            <FaCopyright />
-          </div>
+        {authorId === JSON.parse(getFromLocalStorage("userData"))?.id && (
+          <CopyrightIcon title={"հեղինակային"} />
         )}
       </div>
     </Atropos>

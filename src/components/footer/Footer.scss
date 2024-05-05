@@ -1,8 +1,25 @@
 footer {
+  // background: linear-gradient(
+  //   to bottom right,
+  //   var(--dark-blue),
+  //   var(--dark-blueviolet)
+  // );
+  // background: linear-gradient(90deg, var(--account), rgb(245, 201, 118));
+  background: rgb(245, 222, 179);
   background: linear-gradient(
-    to bottom right,
-    var(--dark-blue),
-    var(--dark-blueviolet)
+    153deg,
+    rgba(245, 222, 179, 1) 0%,
+    rgba(179, 152, 133, 1) 99%
   );
-  min-height: 400px;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  > h1 {
+    font-family: var(--ff2);
+    color: var(--account);
+    text-shadow: 0px 0px 10px black;
+    text-align: center;
+    line-height: 50px;
+  }
 }

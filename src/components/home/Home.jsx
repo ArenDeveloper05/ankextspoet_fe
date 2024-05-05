@@ -42,6 +42,7 @@ const Home = () => {
     <section className="home">
       <TopPosts />
       <div className="home-content">
+        <h1>Ստեղծագործություններ</h1>
         <div className="home-content-posts">
           {posts &&
             posts.map(
@@ -85,6 +86,8 @@ const Home = () => {
             pageClassName={"page"}
             disabledClassNae={"disabled"}
             activeClassName={"active"}
+            previousLabel="Նախորդ"
+            nextLabel="Հաջորդ"
           />
         ) : (
           <div>Loading...</div>

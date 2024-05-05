@@ -1,5 +1,6 @@
 export const ROUTER = {
   HOME_ROUTE: "/",
+  ABOUT_PAGE_ROUTE: "/about",
   LOGIN_ROUTE: "/login",
   REGISTER_ROUTE: "/register",
   ACCOUNT_ROUTE: "/account",

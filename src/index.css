@@ -20,6 +20,7 @@
 :root {
   --global-max-width: 1900px;
   --account: #f7efd4;
+  --account-hover: rgb(254, 206, 116);
   --link: rgb(92, 65, 95);
   --input-bg: rgb(255, 254, 246);
   --dark-blue: #0c2340;
@@ -27,4 +28,17 @@
   --ff1: Ephesis;
   --ff2: SosStm;
   --ff3: "PT Sans Narrow", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--account);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: dimgray;
+  border-radius: 20px;
 }

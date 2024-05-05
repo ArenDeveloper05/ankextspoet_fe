@@ -1,0 +1,25 @@
+.home-top {
+  &-list {
+    padding: 16px;
+
+    &-item {
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      background-color: var(--account);
+      padding: 16px;
+      margin-top: 16px;
+      background: linear-gradient(
+        150deg,
+        var(--account) 52%,
+        rgb(177, 145, 107) 94%
+      );
+      border-radius: 15px;
+      position: relative;
+      > span {
+        align-self: flex-end;
+      }
+    }
+  }
+}
