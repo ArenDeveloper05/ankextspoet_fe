@@ -87,6 +87,10 @@ export const getMostLiked = async (token) => {
   });
 };
 
+export const getPopularUsers = async () => {
+  return await api.get(`/api/most-popular`);
+};
+
 export const getSingleUser = async (token, id) => {
   return await api.get(`/api/user/${id}`, {
     headers: {
@@ -104,8 +108,12 @@ export const deletePost = async (token, id) => {
   });
 };
 
-export const deleteLike = async (id) => {
-  return await api.delete(`/api/like/${id}`);
+export const deleteLike = async (token, id) => {
+  return await api.delete(`/api/like/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 };
 
 export const deleteComment = async (id) => {

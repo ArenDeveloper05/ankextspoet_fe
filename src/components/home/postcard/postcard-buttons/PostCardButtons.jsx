@@ -14,7 +14,7 @@ const PostCardButtons = ({
   async function likeFunction() {
     if (getFromLocalStorage("isAuth") === "true") {
       if (is_liked) {
-        await deleteLike(id);
+        await deleteLike(getFromLocalStorage("accessToken"), id);
       } else {
         await addLike(id, {
           user_id: JSON.parse(getFromLocalStorage("userData")).id,

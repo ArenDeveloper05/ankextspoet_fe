@@ -3,8 +3,8 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 32px;
-  border: solid;
   margin-top: 40px;
+
   &-item {
     background: linear-gradient(
       150deg,
@@ -13,7 +13,7 @@
     );
     box-shadow: 4px 4px 20px #080808;
     min-width: 250px;
-    min-height: 300px;
+    min-height: 400px;
     padding: 24px;
     animation-name: card-appear;
     animation-duration: 1s;

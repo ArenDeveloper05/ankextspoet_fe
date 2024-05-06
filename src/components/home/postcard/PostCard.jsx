@@ -62,9 +62,7 @@ const PostCard = ({
             setOpenAddComent={setOpenAddComent}
           />
         )}
-        {authorId === JSON.parse(getFromLocalStorage("userData"))?.id && (
-          <CopyrightIcon title={"հեղինակային"} />
-        )}
+        {authorId === user?.id && <CopyrightIcon title={"հեղինակային"} />}
       </div>
     </Atropos>
   );

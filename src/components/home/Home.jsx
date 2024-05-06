@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useCallback, useState } from "react";
 import { useEffect } from "react";
 import { getAllPosts, getFromLocalStorage } from "../../api/api";
@@ -6,6 +5,7 @@ import { getAllPosts, getFromLocalStorage } from "../../api/api";
 import PostCard from "./postcard/PostCard";
 import ReactPaginate from "react-paginate";
 import TopPosts from "./top-posts/TopPosts";
+import TopUsers from "./top-users/TopUsers";
 
 import "./Home.scss";
 
@@ -93,22 +93,7 @@ const Home = () => {
           <div>Loading...</div>
         )}
       </div>
-      <aside className="home-poets">
-        <h1>Թոփ Պոետներ</h1>
-        <div className="home-poets-list">
-          <div className="home-poets-list-poet">
-            <div className="home-poets-list-poet-image">
-              <img
-                src="https://w7.pngwing.com/pngs/862/646/png-transparent-beard-hipster-male-man-avatars-xmas-giveaway-icon-thumbnail.png"
-                alt="poetImage"
-              />
-            </div>
-            <h2 className="home-poets-list-poet-fullname">
-              <Link to={""}>Poet Poetyan</Link>
-            </h2>
-          </div>
-        </div>
-      </aside>
+      <TopUsers />
     </section>
   );
 };
