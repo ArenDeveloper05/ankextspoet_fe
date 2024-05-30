@@ -1,0 +1,29 @@
+.about-page {
+  padding: 200px 0;
+  background-image: url(../../assets/images/vernatun.jpg);
+  background-size: cover;
+
+  &-content {
+    max-width: 1400px;
+    margin: auto;
+    border-radius: 30px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(60deg, #1313138c, rgba(224, 189, 157, 0.427));
+    backdrop-filter: blur(12px);
+
+    > h1 {
+      font-size: 40px;
+    }
+
+    > p {
+      font-size: 26px;
+      font-family: var(--ff2);
+      font-weight: 500;
+      line-height: 50px;
+      color: var(--dark-blue);
+      color: var(--account);
+    }
+  }
+}

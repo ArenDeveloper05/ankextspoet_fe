@@ -8,7 +8,7 @@ const Layout = ({ children, header, scroll }) => {
   return (
     <>
       <Header header={header} scroll={scroll} />
-      <main style={!header ? { marginTop: "100px" } : {}}>{children}</main>
+      <main>{children}</main>
       <Footer />
     </>
   );
