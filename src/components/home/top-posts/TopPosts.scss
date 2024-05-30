@@ -17,12 +17,21 @@
       );
       border-radius: 15px;
       position: relative;
+
+      > h1 {
+        font-size: 20px;
+        font-family: var(--ff2);
+        font-weight: 100;
+        color: rgb(44, 44, 44);
+        margin-bottom: 16px;
+      }
+
       > span {
         align-self: flex-end;
         a {
           color: var(--dark-blue);
           font-weight: 600;
-          font-size: 18px;
+          font-size: 20px;
           text-decoration: none;
         }
       }

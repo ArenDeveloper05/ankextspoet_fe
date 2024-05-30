@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { ROUTER } from "../../../../router/router";
 import { getFromLocalStorage } from "../../../../api/api";
+
 import CopyrightIcon from "../../../common/copyright-icon/CopyrightIcon";
+import noImage from "../../../../assets/images/no-image.png";
 
 const TopUsersItem = ({ item: { avatar, id, likes_count, name } }) => {
   const user = JSON.parse(getFromLocalStorage("userData"));
@@ -9,14 +11,7 @@ const TopUsersItem = ({ item: { avatar, id, likes_count, name } }) => {
   return (
     <div className="home-poets-list-poet">
       <div className="home-poets-list-poet-image">
-        <img
-          src={
-            avatar
-              ? avatar
-              : "https://w7.pngwing.com/pngs/862/646/png-transparent-beard-hipster-male-man-avatars-xmas-giveaway-icon-thumbnail.png"
-          }
-          alt="poetImage"
-        />
+        <img src={avatar ? avatar : noImage} alt="poetImage" />
       </div>
       <h2 className="home-poets-list-poet-fullname">
         <Link to={id === user?.id ? ROUTER.ACCOUNT_ROUTE : `user/${id}`}>

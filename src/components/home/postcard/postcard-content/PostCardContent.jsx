@@ -3,44 +3,31 @@ import { Link } from "react-router-dom";
 import { ROUTER } from "../../../../router/router";
 import parse from "html-react-parser";
 
+import noImage from "../../../../assets/images/no-image.png";
+
 const PostCardContent = ({ title, description, username, authorId, user }) => {
-  // console.log(parse(description));
   const [more, setMore] = useState(true);
 
-  const charsCount = 10;
-  const isDescriptionOkay =
-    description &&
-    parse(description) &&
-    parse(description).props &&
-    parse(description).props.children;
+  const text = Array.isArray(parse(description))
+    ? recursiveString(parse(description))
+    : parse(description).props.children;
 
-  // function normalizedSentence(str, count) {
-  //   let part = "";
-  //   for (let i = count; i < str.length; i++) {
-  //     if (str[i] === " ") {
-  //       break;
-  //     }
-  //     part += str[i];
-  //   }
-  //   return str.slice(0, count) + part;
-  // }
+  const charsCount = 30;
 
   function normalizedSentence(str, count) {
     let part = "";
-    if (Array.isArray(str)) {
-      str = recursiveString(str);
-    }
     for (let i = count; i < str.length; i++) {
-      if (str[i] === " ") {
+      if (!str[i].trim()) {
         break;
+      } else {
+        part += str[i];
       }
-      part += str[i];
     }
+
     return str.slice(0, count) + part;
   }
 
   function recursiveString(arr) {
-    // console.log(arr);
     let str = "";
     arr.forEach((element) => {
       if (typeof element === "string") {
@@ -56,59 +43,38 @@ const PostCardContent = ({ title, description, username, authorId, user }) => {
     return str;
   }
 
-  // if (authorId === 28) {
-  //   if (Array.isArray(parse(description))) {
-  //     console.log(parse(description));
-  //     const res = normalizedSentence(parse(description));
-  //     console.log(res);
-  //   }
-  // }
-
-  // normalizedSentence(parse(description));
-  const normalVersion = normalizedSentence(
-    Array.isArray(parse(description))
-      ? parse(description)
-      : parse(description).props.children,
-    charsCount
-  );
-  console.log(normalVersion);
-  const lengthsAreTheSame =
-    isDescriptionOkay &&
-    normalVersion.length === parse(description).props.children.length;
+  const normalVersion = normalizedSentence(text, charsCount);
+  const lengthsAreTheSame = text && normalVersion.length === text.length;
 
   return (
     <div className="home-content-posts-post-content">
       <h1>{title}</h1>
-      {/* <div>{parse(description)}</div> */}
       <p>
-        {isDescriptionOkay &&
-        parse(description).props.children.length > charsCount &&
-        more &&
-        !lengthsAreTheSame
+        {text && text.length > charsCount && more && !lengthsAreTheSame
           ? normalVersion + "..."
-          : isDescriptionOkay && parse(description).props.children}
+          : parse(description)}
       </p>
 
-      {isDescriptionOkay &&
-        parse(description).props.children.length > charsCount &&
-        !lengthsAreTheSame && (
-          <b
-            className="home-content-posts-post-content-more"
-            onClick={() => {
-              setMore((prev) => !prev);
-            }}
-          >
-            {more ? "կարդալ ավելին..." : "փակել..."}
-          </b>
-        )}
+      {text && text.length > charsCount && !lengthsAreTheSame && (
+        <b
+          className="home-content-posts-post-content-more"
+          onClick={() => {
+            setMore((prev) => !prev);
+          }}
+        >
+          {more ? "կարդալ ավելին..." : "փակել..."}
+        </b>
+      )}
 
-      <span>
-        {authorId === user?.id ? (
-          <Link to={ROUTER.ACCOUNT_ROUTE}>{username}</Link>
-        ) : (
-          <Link to={`/user/${authorId}`}>{username}</Link>
-        )}
-      </span>
+      <Link
+        className="home-content-posts-post-content-author"
+        to={authorId === user?.id ? ROUTER.ACCOUNT_ROUTE : `/user/${authorId}`}
+      >
+        <div className="home-content-posts-post-content-author-image">
+          <img src={noImage} alt="profile" />
+        </div>
+        <p>{username}</p>
+      </Link>
     </div>
   );
 };
