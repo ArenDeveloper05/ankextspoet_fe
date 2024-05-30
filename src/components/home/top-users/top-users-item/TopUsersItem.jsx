@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ROUTER } from "../../../../router";
+import { ROUTER } from "../../../../router/router";
 import { getFromLocalStorage } from "../../../../api/api";
 import CopyrightIcon from "../../../common/copyright-icon/CopyrightIcon";
 

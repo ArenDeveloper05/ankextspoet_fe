@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { getFromLocalStorage, getSingleUser } from "../../../api/api";
 
-import "./SingleUser.scss";
 import SingleUserPosts from "./single-user-posts/SingleUserPosts";
+
+import "./SingleUser.scss";
 
 const SingleUser = () => {
   const { id } = useParams();

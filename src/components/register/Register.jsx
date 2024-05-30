@@ -4,7 +4,7 @@ import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
-import { ROUTER } from "../../router";
+import { ROUTER } from "../../router/router";
 import { register } from "../../api/api";
 
 // //Toast components

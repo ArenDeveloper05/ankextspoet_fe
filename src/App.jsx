@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { ROUTER } from "./router/index";
+import { ROUTER } from "./router/router";
 import { getFromLocalStorage } from "./api/api";
 
 //PAGES
@@ -11,10 +11,10 @@ import AccountPage from "./pages/AccountPage";
 import AddPostPage from "./pages/AddPostPage";
 import UserPostsPage from "./pages/UserPostsPage";
 import ExercisePage from "./pages/ExercisePage";
-
-import "./App.css";
 import SingleUserPage from "./pages/SingleUserPage";
 import AboutPage from "./pages/AboutPage";
+
+import "./App.css";
 
 function App() {
   const isAuth = getFromLocalStorage("isAuth") === "true" ? true : false;

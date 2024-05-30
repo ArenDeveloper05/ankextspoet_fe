@@ -34,7 +34,7 @@
       padding-top: 120px;
       display: flex;
       flex-direction: column;
-      gap: 200px;
+      gap: 60px;
       .atropos-inner {
         border-radius: 24px;
       }
@@ -67,6 +67,15 @@
               &:hover {
                 color: var(--link);
               }
+            }
+          }
+
+          &-more {
+            color: black;
+            cursor: pointer;
+
+            &:hover {
+              text-decoration: underline;
             }
           }
         }

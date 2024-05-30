@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { getFromLocalStorage, getMostLiked } from "../../../api/api";
 import { useEffect, useState } from "react";
-import { ROUTER } from "../../../router";
+import { ROUTER } from "../../../router/router";
 import CopyrightIcon from "../../common/copyright-icon/CopyrightIcon";
 
 import parse from "html-react-parser";

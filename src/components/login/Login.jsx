@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
-import { ROUTER } from "../../router";
+import { ROUTER } from "../../router/router";
 import { Link, useNavigate } from "react-router-dom";
 import { changeInLocalStorage, getUserData, login } from "../../api/api";
 // Formik components and Yup

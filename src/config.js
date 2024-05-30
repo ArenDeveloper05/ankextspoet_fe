@@ -3,7 +3,7 @@
 import { MdAccountCircle } from "react-icons/md";
 import { BsSignpostSplitFill } from "react-icons/bs";
 import { RiLogoutCircleRFill } from "react-icons/ri";
-import { ROUTER } from "./router";
+import { ROUTER } from "./router/router";
 
 export const CONFIG = {
   myPostsConfig: [

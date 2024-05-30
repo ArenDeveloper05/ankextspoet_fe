@@ -2,7 +2,7 @@ import { AiFillHeart } from "react-icons/ai";
 import { FaCommentAlt } from "react-icons/fa";
 import { addLike, deleteLike, getFromLocalStorage } from "../../../../api/api";
 import { useNavigate } from "react-router-dom";
-import { ROUTER } from "../../../../router";
+import { ROUTER } from "../../../../router/router";
 
 const PostCardButtons = ({
   setOpenAddComent,

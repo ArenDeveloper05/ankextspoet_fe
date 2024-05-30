@@ -3,7 +3,7 @@ import { addPost } from "../../api/api";
 import { TextField } from "@mui/material";
 import { notifyError, notifySuccess } from "../../utils/toast/toast";
 import { ToastContainer } from "react-toastify";
-import { ROUTER } from "../../router";
+import { ROUTER } from "../../router/router";
 import { useNavigate } from "react-router-dom";
 
 import Editor from "../editor/Editor";

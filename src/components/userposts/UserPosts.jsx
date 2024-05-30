@@ -1,9 +1,10 @@
 import { useState } from "react";
-import UserPostsCard from "./userpostscard/UserPostsCard";
 import { getFromLocalStorage, getUserPosts } from "../../api/api";
 import { useEffect } from "react";
-import ReactLoading from "react-loading";
 import { CONFIG } from "../../config";
+
+import ReactLoading from "react-loading";
+import UserPostsCard from "./userpostscard/UserPostsCard";
 
 import "./UserPosts.scss";
 

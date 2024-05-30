@@ -22,7 +22,7 @@ const TopUsers = () => {
       <div className="home-poets-list">
         {topUsers &&
           topUsers.slice(0, 3).map((item) => {
-            return <TopUsersItem item={item} />;
+            return <TopUsersItem key={item.id} item={item} />;
           })}
       </div>
     </aside>

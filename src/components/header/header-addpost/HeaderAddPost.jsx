@@ -1,6 +1,6 @@
 import { FaPlusCircle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { ROUTER } from "../../../router";
+import { ROUTER } from "../../../router/router";
 
 const HeaderAddPost = () => {
   const navigate = useNavigate();
