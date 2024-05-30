@@ -1,11 +1,24 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ROUTER } from "../../../../router/router";
+import {
+  normalizedSentence,
+  recursiveString,
+  timeAgo,
+} from "../../../../helpers/helpers";
+
 import parse from "html-react-parser";
 
 import noImage from "../../../../assets/images/no-image.png";
 
-const PostCardContent = ({ title, description, username, authorId, user }) => {
+const PostCardContent = ({
+  title,
+  description,
+  username,
+  authorId,
+  user,
+  created_at,
+}) => {
   const [more, setMore] = useState(true);
 
   const text = Array.isArray(parse(description))
@@ -13,35 +26,6 @@ const PostCardContent = ({ title, description, username, authorId, user }) => {
     : parse(description).props.children;
 
   const charsCount = 30;
-
-  function normalizedSentence(str, count) {
-    let part = "";
-    for (let i = count; i < str.length; i++) {
-      if (!str[i].trim()) {
-        break;
-      } else {
-        part += str[i];
-      }
-    }
-
-    return str.slice(0, count) + part;
-  }
-
-  function recursiveString(arr) {
-    let str = "";
-    arr.forEach((element) => {
-      if (typeof element === "string") {
-        str += element;
-      } else {
-        if (Array.isArray(element.props.children)) {
-          str += recursiveString(element.props.children);
-        } else {
-          str += element.props.children;
-        }
-      }
-    });
-    return str;
-  }
 
   const normalVersion = normalizedSentence(text, charsCount);
   const lengthsAreTheSame = text && normalVersion.length === text.length;
@@ -73,7 +57,10 @@ const PostCardContent = ({ title, description, username, authorId, user }) => {
         <div className="home-content-posts-post-content-author-image">
           <img src={noImage} alt="profile" />
         </div>
-        <p>{username}</p>
+        <div className="home-content-posts-post-content-author-info">
+          <p>{username}</p>
+          <span>{timeAgo(created_at)}</span>
+        </div>
       </Link>
     </div>
   );

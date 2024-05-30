@@ -2,10 +2,10 @@
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export const notifySuccess = (message) =>
+export const notifySuccess = (message, timeout = 5000) =>
   toast.success(message, {
     position: "top-right",
-    autoClose: 5000,
+    autoClose: timeout,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
@@ -14,10 +14,10 @@ export const notifySuccess = (message) =>
     theme: "dark",
   });
 
-export const notifyError = (message) =>
+export const notifyError = (message, timeout = 5000) =>
   toast.error(message, {
     position: "top-right",
-    autoClose: 5000,
+    autoClose: timeout,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,

@@ -21,6 +21,7 @@ const PostCard = ({
   getAllPostsFunction,
   is_liked,
   authorId,
+  created_at,
 }) => {
   const [openAddComment, setOpenAddComent] = useState(false);
   const [openComments, setOpenComments] = useState(false);
@@ -36,6 +37,7 @@ const PostCard = ({
           username={username}
           authorId={authorId}
           user={user}
+          created_at={created_at}
         />
         <PostCardLikes
           likes={likes}

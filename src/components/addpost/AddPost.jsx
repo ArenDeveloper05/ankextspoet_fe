@@ -33,7 +33,7 @@ const AddPost = () => {
       try {
         await addPost(post);
         clearPostData();
-        notifySuccess("Հրապարակումը տեղի ունեցավ։");
+        notifySuccess("Հրապարակումը տեղի ունեցավ։", 3000);
         setTimeout(() => {
           navigate(ROUTER.HOME_ROUTE);
         }, 3000);
