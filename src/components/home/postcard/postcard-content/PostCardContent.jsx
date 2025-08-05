@@ -33,11 +33,11 @@ const PostCardContent = ({
   return (
     <div className="home-content-posts-post-content">
       <h1>{title}</h1>
-      <p>
+
         {text && text.length > charsCount && more && !lengthsAreTheSame
           ? normalVersion + "..."
           : parse(description)}
-      </p>
+
 
       {text && text.length > charsCount && !lengthsAreTheSame && (
         <b

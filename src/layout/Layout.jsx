@@ -9,6 +9,7 @@ const Layout = ({ children, header, scroll }) => {
     <>
       <Header header={header} scroll={scroll} />
       <main>{children}</main>
+
       <Footer />
     </>
   );

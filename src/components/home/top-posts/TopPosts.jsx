@@ -39,7 +39,7 @@ const TopPosts = () => {
               <Atropos activeOffset={40} shadowScale={1} key={id}>
                 <div className="home-top-list-item">
                   <h1>{title && title}</h1>
-                  <p>{description && parse(description)}</p>
+                  {description && parse(description)}
                   <span>
                     {user_id === user?.id ? (
                       <Link to={ROUTER.ACCOUNT_ROUTE}>{username}</Link>
